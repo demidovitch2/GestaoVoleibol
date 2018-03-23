@@ -1,0 +1,117 @@
+@CHARSET "utf-8";
+
+@font-face {
+	src: url('#{resource['font/palanquin-medium.ttf']}');
+	font-family: "Palanquin Medium";
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	font-size: 16px;
+	font-family: "Palanquin Medium", "Times New Roman", "Arial" !important;
+	margin: 0;
+}
+
+header {
+	background-color: #545454;
+	color: #FFF;
+	padding: 5px 0;
+	height: 30px;
+}
+
+header a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+header>div {
+	margin-left: 10px;
+}
+
+.ui-outputlabel, .ui-button-text, .ui-submenu, .ui-menuitem,
+	.ui-inputfield, .ui-inputtext, .ui-selectonemenu, .ui-inputtextarea,
+	.ui-column-title, .ui-radiobutton label, .ui-messages,
+	.ui-messages-error, .ui-column-title, .ui-datatable, .ui-widget, a, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: "Palanquin Medium", "Arial";
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1em;
+}
+
+.ui-dialog-title {
+	text-align: center;
+}
+
+.ui-menubar {
+	background: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+	color: #FFF;
+}
+
+.ui-menuitem {
+	background: none;
+}
+
+.ui-menuitem-text {
+	color: #000;
+}
+
+.ui-menuitem-link {
+	color: #FFF;
+}
+
+.ui-datatable-empty-message {
+	font-family: "Palanquin Medium";
+	text-align: center;
+}
+
+.ui-datatable tr {
+	height: 15px;
+}
+
+input.ui-inputfield {
+	font-family: "Palanquin Medium";
+}
+
+.ui-datascroller {
+	width: 98%;
+	margin: 0 auto;
+}
+
+#conteudo {
+	padding: 10px;
+}
+
+.botao-comprar {
+	width: 200px;
+}
+
+.login-area {
+	width: 500px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+
+.login-grid {
+	margin: 15px auto;
+}
+
+footer {
+	width: 100%;
+	background-color: #EEEEEE;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Palanquin Medium", "Arial" !important;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
