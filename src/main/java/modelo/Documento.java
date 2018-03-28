@@ -24,7 +24,7 @@ public class Documento implements Serializable {
 
 	private String numero;
 	private DocumentoTipo tipo;
-	private String estadoDcumento;
+	private String estadoDocumento;
 	private Date dataEmissao;
 	private Date dataValidade;
 	private String fotoFrontalPath;
@@ -57,12 +57,12 @@ public class Documento implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public String getEstadoDcumento() {
-		return estadoDcumento;
+	public String getEstadoDocumento() {
+		return estadoDocumento;
 	}
 
-	public void setEstadoDcumento(String estadoDcumento) {
-		this.estadoDcumento = estadoDcumento;
+	public void setEstadoDocumento(String estadoDocumento) {
+		this.estadoDocumento = estadoDocumento;
 	}
 
 	public Date getDataEmissao() {

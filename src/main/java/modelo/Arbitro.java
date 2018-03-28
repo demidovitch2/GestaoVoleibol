@@ -2,6 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
+import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,11 +23,11 @@ public class Arbitro implements Serializable {
 	@GeneratedValue
 	@Column(name = "id_arbitro")
 	private Long id;
-	
-	
+
 	@NotNull
 	private String nivel;
 
+	@Inject
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pessoa")
 	private Pessoa pessoa;
@@ -79,7 +80,5 @@ public class Arbitro implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }

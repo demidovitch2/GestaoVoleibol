@@ -5,11 +5,16 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
-	<ui:define name="titulo">Novo Equipa</ui:define>
+	<f:metadata>
+		<o:viewParam name="equipa" value="#{cadastroEquipaBean.equipa}" />
+	</f:metadata>
+
+	<ui:define name="titulo">#{cadastroEquipaBean.editando ? "Edição da Equipa" : "Nova Equipa"}</ui:define>
 	<ui:define name="corpo">
-		<h1 style="margin-top: 20px; margin-bottom: 20px">Nova Equipa</h1>
+		<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroEquipaBean.editando
+			? "Edição da Equipa" : "Nova Equipa"}</h1>
 
 		<h:form id="frm">
 			<div class="ui-fluid">
@@ -18,38 +23,48 @@
 					columnClasses="ui-grid-col-2, ui-grid-col-4">
 
 					<p:outputLabel value="Nome" for="inputText-nome" />
-					<p:inputText id="inputText-nome" maxlength="70" required="true"
+					<p:inputText id="inputText-nome"
+						value="#{cadastroEquipaBean.equipa.nome}" maxlength="70"
+						required="true"
 						requiredMessage="O nome da equipe é de preenchimento obrigatório" />
 
 					<p:outputLabel value="Código" for="inputText-codigo" />
-					<p:inputText id="inputText-codigo" maxlength="10" required="true"
+					<p:inputText id="inputText-codigo"
+						value="#{cadastroEquipaBean.equipa.codigo}" maxlength="10"
+						required="true"
 						requiredMessage="O Código é de preenchimento obrigatório" />
 
 					<p:outputLabel value="Médico" for="inputText-medico" />
-					<p:inputText id="inputText-medico" maxlength="70" />
+					<p:inputText id="inputText-medico"
+						value="#{cadastroEquipaBean.equipa.medico}" maxlength="70" />
 
 					<p:outputLabel value="Fisioterapeuta"
 						for="inputText-fisioterapeuta" />
-					<p:inputText id="inputText-fisioterapeuta" maxlength="70" />
+					<p:inputText id="inputText-fisioterapeuta"
+						value="#{cadastroEquipaBean.equipa.fisioterapeuta}" maxlength="70" />
 
 					<p:outputLabel value="Presidente" for="inputText-presidente" />
-					<p:inputText id="inputText-presidente" maxlength="70" />
+					<p:inputText id="inputText-presidente"
+						value="#{cadastroEquipaBean.equipa.presidente}" maxlength="70" />
 
 					<p:outputLabel value="Delegado" for="inputText-delegado" />
-					<p:inputText id="inputText-delegado" maxlength="70" />
+					<p:inputText id="inputText-delegado"
+						value="#{cadastroEquipaBean.equipa.delegado}" maxlength="70" />
 
 					<p:outputLabel value="Treinador Principal" for="selectTreinador" />
-					<p:selectOneMenu id="selectTreinador">
+					<p:selectOneMenu id="selectTreinador"
+						value="#{cadastroEquipaBean.equipa.treinador}">
 						<f:selectItem itemLabel="Seleccione o Treinador"
 							noSelectionOption="true" />
-						<f:selectItems />
+						<f:selectItems value="#{cadastroEquipaBean.treinadores}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Treinador Adjunto" for="selectTreinadorAdj" />
-					<p:selectOneMenu id="selectTreinadorAdj">
+					<p:selectOneMenu id="selectTreinadorAdj"
+						value="#{cadastroEquipaBean.equipa.treinadorAdjunto}">
 						<f:selectItem itemLabel="Seleccione o Treinador Adjunto"
 							noSelectionOption="true" />
-						<f:selectItems />
+						<f:selectItems value="#{cadastroEquipaBean.treinadores}" />
 					</p:selectOneMenu>
 
 					<p:messages closable="true" />
@@ -58,8 +73,10 @@
 
 				<p:toolbar>
 					<p:toolbarGroup>
-						<p:commandButton value="Salvar" id="commandButton-salvar"
-							icon="ui-icon-disk" update="frm" />
+						<p:commandButton
+							value="#{cadastroEquipaBean.editando ? 'Actualizar' : 'Salvar'}"
+							id="commandButton-salvar" icon="ui-icon-disk" update="frm"
+							action="#{cadastroEquipaBean.salvar()}" />
 					</p:toolbarGroup>
 				</p:toolbar>
 			</div>

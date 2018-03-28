@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "tb_equipa")
 public class Equipa implements Serializable {
@@ -22,12 +21,12 @@ public class Equipa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// Atributos da Classe
-	
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id_equipa")
 	private Long id;
-	
+
 	private String nome;
 	private String codigo;
 	@OneToOne(cascade = CascadeType.ALL)
@@ -46,7 +45,7 @@ public class Equipa implements Serializable {
 	private List<Atleta> atletas;
 
 	// M�todos Getters e Setters
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -128,6 +127,11 @@ public class Equipa implements Serializable {
 	}
 
 	@Override
+	public String toString() {
+		return nome;
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -151,5 +155,5 @@ public class Equipa implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 }

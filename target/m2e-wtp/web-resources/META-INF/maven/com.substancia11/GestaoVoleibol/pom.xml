@@ -11,42 +11,117 @@
 	</properties>
 
 	<dependencies>
-		<!-- Majorra (Implementação do JSF 2) -->
+		<!-- https://mvnrepository.com/artifact/org.glassfish/javax.faces -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
 			<version>2.2.12</version>
-			<scope>compile</scope>
 		</dependency>
 
-		<!-- PrimeFaces (Biblioteca de Componentes) -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.9.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>6.2</version>
+			<version>6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-core</artifactId>
+			<version>3.0.0.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.3.4.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.ocpsoft/prettyfaces-jsf2 -->
+		<dependency>
+			<groupId>com.ocpsoft</groupId>
+			<artifactId>prettyfaces-jsf2</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.0</version>
+			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 
-		<!--JBoss/Weld implementação de referência do CDI para Servlet Container(Exemplo:Tomcat) -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet</artifactId>
-			<version>2.2.6.Final</version>
-			<scope>runtime</scope>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
 		</dependency>
 
-		<!-- usado pelo Weld -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 		<dependency>
-			<groupId>org.jboss</groupId>
-			<artifactId>jandex</artifactId>
-			<version>2.0.3.Final</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.1.4.RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.1.4.RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.1.4.RELEASE</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.8.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.omnifaces/omnifaces -->
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>2.6.3</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.primefaces.themes/bootstrap -->
@@ -56,63 +131,13 @@
 			<version>1.0.10</version>
 		</dependency>
 
-		<!-- Implementação do CDI -->
 		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
+			<groupId>org.chartistjsf</groupId>
+			<artifactId>ChartistJSF</artifactId>
 			<version>2.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- PROVIDER JPA(HIBERNATE) -->
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.2.15.Final</version>
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.hibernate.validator</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.8.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.2.15.Final</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- DEPENDENCIA MYSQL -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.6</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
-		<dependency>
-			<groupId>org.jboss.logging</groupId>
-			<artifactId>jboss-logging</artifactId>
-			<version>3.3.2.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.21</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.21</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

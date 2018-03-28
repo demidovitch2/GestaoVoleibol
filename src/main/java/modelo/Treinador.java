@@ -2,6 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
+import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,9 +23,11 @@ public class Treinador implements Serializable {
 	@Column(name = "id_treinador")
 	private Long id;
 
+	@Inject
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pessoa")
 	private Pessoa pessoa;
+
 	private String nivel;
 
 	public Long getId() {
@@ -49,6 +52,11 @@ public class Treinador implements Serializable {
 
 	public void setNivel(String nivel) {
 		this.nivel = nivel;
+	}
+
+	@Override
+	public String toString() {
+		return pessoa.getNome() + " " + pessoa.getApelido();
 	}
 
 	@Override

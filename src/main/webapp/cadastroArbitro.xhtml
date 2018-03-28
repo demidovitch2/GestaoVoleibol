@@ -12,138 +12,143 @@
 		<h1 style="margin-top: 20px; margin-bottom: 20px">Novo Árbitro</h1>
 
 		<p:messages closable="true" />
-		<div class="ui-fluid" style="margin-top: 20px">
-			<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
-				styleClass="ui-noborder"
-				columnClasses="ui-grid-col-2, ui-grid-col-4,ui-grid-col-2, ui-grid-col-4">
 
-				<p:outputLabel value="Nome" for="inputText-nome" />
-				<p:inputText id="inputText-nome" maxlength="70" required="true"
-					requiredMessage="O nome é de preenchimento obrigatório" />
+		<h:form id="frm">
+			<div class="ui-fluid" style="margin-top: 20px">
+				<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
+					styleClass="ui-noborder"
+					columnClasses="ui-grid-col-2, ui-grid-col-4,ui-grid-col-2, ui-grid-col-4">
 
-				<p:outputLabel value="Apelido" for="inputText-apelido" />
-				<p:inputText id="inputText-apelido" maxlength="70" required="true"
-					requiredMessage="O Apelido é de preenchimento obrigatório" />
+					<p:outputLabel value="Nome" for="inputText-nome" />
+					<p:inputText id="inputText-nome"
+						value="#{cadastroArbitroBean.arbitro.pessoa.nome}" />
 
-
-				<p:outputLabel for="selectOneRadio-sexo" value="Sexo:" />
-				<p:selectOneRadio id="selectOneRadio-sexo" required="true"
-					requiredMessage="O sexo é de preenchimento obrigatório">
-
-					<f:selectItem itemLabel="Masculino" itemValue="M" />
-					<f:selectItem itemLabel="Feminino" itemValue="F" />
-				</p:selectOneRadio>
-
-				<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
-				<p:calendar id="dataNascimento" required="true"
-					requiredMessage="A Data de Nascimento é de preenchimento obrigatório" />
-
-				<p:outputLabel value="Nacionalidade" for="inputText-nacionalidade" />
-				<p:inputText id="inputText-nacionalidade" maxlength="70"
-					required="true"
-					requiredMessage="A Nacionalidade é de preenchimento obrigatório" />
-
-				<p:outputLabel value="Naturalidade" for="inputText-naturalidade" />
-				<p:inputText id="inputText-naturalidade" maxlength="70"
-					required="true"
-					requiredMessage="A Naturalidade é de preenchimento obrigatório" />
-
-				<p:outputLabel for="selectOneRadio-estado_Civil"
-					value="Estado Civil:" />
-				<p:selectOneRadio id="selectOneRadio-estado_Civil" required="true"
-					requiredMessage="O Estado Civil é de preenchimento obrigatório">
-
-					<f:selectItem itemLabel="Casado(a)" itemValue="Casado(a)" />
-					<f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro(a)" />
-					<f:selectItem itemLabel="Viúvo(a)" itemValue="Viúvo(a)" />
-					<f:selectItem itemLabel="Dirciado(a)" itemValue="Dirciado(a)" />
-				</p:selectOneRadio>
-
-				<p:outputLabel value="Nome da Mãe" for="inputText-nomeMae" />
-				<p:inputText id="inputText-nomeMae" maxlength="70" />
-
-				<p:outputLabel value="Nome do Pai" for="inputText-nomePai" />
-				<p:inputText id="inputText-nomePai" maxlength="70" />
-
-				<p:outputLabel value="Telefone" for="inputText-telefone" />
-				<p:inputText id="inputText-telefone" maxlength="70" />
-
-				<p:outputLabel value="Celular" for="inputText-celular" />
-				<p:inputText id="inputText-celular" maxlength="70" />
-
-				<p:outputLabel value="E-mail" for="inputText-email" />
-				<p:inputText id="inputText-email" maxlength="80" required="true"
-					requiredMessage="O email é de preenchimento obrigatório" />
+					<p:outputLabel value="Apelido" for="inputText-apelido" />
+					<p:inputText id="inputText-apelido"
+						value="#{cadastroArbitroBean.arbitro.pessoa.apelido}" />
 
 
-				<p:outputLabel value="Endereço" for="inputText-endereco" />
-				<p:inputText id="inputText-endereco" maxlength="200" required="true"
-					requiredMessage="O endereço é de preenchimento obrigatório" />
+					<p:outputLabel for="selectOneRadio-sexo" value="Sexo:" />
+					<p:selectOneRadio id="selectOneRadio-sexo"
+						value="#{cadastroArbitroBean.arbitro.pessoa.genero}">
 
-				<p:outputLabel value="NUIT" for="inputText-nuit" />
-				<p:inputText id="inputText-nuit" maxlength="9" />
-			</p:panelGrid>
+						<f:selectItem itemLabel="Masculino" itemValue="M" />
+						<f:selectItem itemLabel="Feminino" itemValue="F" />
+					</p:selectOneRadio>
 
-			<p:separator />
+					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
+					<p:calendar id="dataNascimento"
+						value="#{cadastroArbitroBean.arbitro.pessoa.dataNascimento}" />
 
-			<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
-				styleClass="ui-noborder"
-				columnClasses="ui-grid-col-2, ui-grid-col-4,ui-grid-col-2, ui-grid-col-4">
-				<p:outputLabel value="Documento" for="inputText-documento" />
-				<p:selectOneMenu rendered="true" id="inputText-documento"
-					maxlength="9">
-					<f:selectItem itemLabel="Escolha o Tipo" noSelectionOption="true" />
-					<f:selectItem itemLabel="Bilhete de Identidade"
-						itemValue="Bilhete de Identidade" />
-					<f:selectItem itemLabel="Carta de Condução"
-						itemValue="Carta de Condução" />
-					<f:selectItem itemLabel="Cédula Pessoal" itemValue="Cédula Pessoal" />
-					<f:selectItem itemLabel="Passaporte" itemValue="Passaporte" />
+					<p:outputLabel value="Nacionalidade" for="inputText-nacionalidade" />
+					<p:inputText id="inputText-nacionalidade"
+						value="#{cadastroArbitroBean.arbitro.pessoa.nacionalidade}" />
+
+					<p:outputLabel value="Naturalidade" for="inputText-naturalidade" />
+					<p:inputText id="inputText-naturalidade"
+						value="#{cadastroArbitroBean.arbitro.pessoa.naturalidade}" />
+
+					<p:outputLabel for="selectOneRadio-estado_Civil"
+						value="Estado Civil:" />
+					<p:selectOneRadio id="selectOneRadio-estado_Civil"
+						value="#{cadastroArbitroBean.arbitro.pessoa.estadoCivil}">
+
+						<f:selectItem itemLabel="Casado(a)" itemValue="Casado(a)" />
+						<f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro(a)" />
+						<f:selectItem itemLabel="Viúvo(a)" itemValue="Viúvo(a)" />
+						<f:selectItem itemLabel="Dirciado(a)" itemValue="Dirciado(a)" />
+					</p:selectOneRadio>
+
+					<p:outputLabel value="Nome da Mãe" for="inputText-nomeMae" />
+					<p:inputText id="inputText-nomeMae"
+						value="#{cadastroArbitroBean.arbitro.pessoa.nomeMae}" />
+
+					<p:outputLabel value="Nome do Pai" for="inputText-nomePai" />
+					<p:inputText id="inputText-nomePai"
+						value="#{cadastroArbitroBean.arbitro.pessoa.nomePai}" />
+
+					<p:outputLabel value="Telefone" for="inputText-telefone" />
+					<p:inputText id="inputText-telefone"
+						value="#{cadastroArbitroBean.arbitro.pessoa.telefone}" />
+
+					<p:outputLabel value="Celular" for="inputText-celular" />
+					<p:inputText id="inputText-celular"
+						value="#{cadastroArbitroBean.arbitro.pessoa.celular}" />
+
+					<p:outputLabel value="E-mail" for="inputText-email" />
+					<p:inputText id="inputText-email"
+						value="#{cadastroArbitroBean.arbitro.pessoa.email}" />
+
+
+					<p:outputLabel value="Endereço" for="inputText-endereco" />
+					<p:inputText id="inputText-endereco"
+						value="#{cadastroArbitroBean.arbitro.pessoa.endereco}" />
+
+					<p:outputLabel value="NUIT" for="inputText-nuit" />
+					<p:inputText id="inputText-nuit"
+						value="#{cadastroArbitroBean.arbitro.pessoa.nuit}" />
+				</p:panelGrid>
+
+				<p:separator />
+
+				<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
+					styleClass="ui-noborder"
+					columnClasses="ui-grid-col-2, ui-grid-col-4,ui-grid-col-2, ui-grid-col-4">
+					<p:outputLabel value="Documento" for="inputText-documento" />
+					<p:selectOneMenu
+						value="#{cadastroArbitroBean.arbitro.pessoa.documento.tipo}"
+						id="inputText-documento">
+						<f:selectItem itemLabel="Escolha o Tipo" noSelectionOption="true" />
+						<f:selectItems value="#{cadastroArbitroBean.documentosTipo}"
+							var="tipos" itemValue="#{tipos}" itemLabel="#{tipos.descricao}" /> />
 				</p:selectOneMenu>
 
-				<p:outputLabel value="Número" for="inputText-numero" />
-				<p:inputText id="inputText-numero" maxlength="15" required="true"
-					requiredMessage="O Número é de preenchimento obrigatório" />
+					<p:outputLabel value="Número" for="inputText-numero" />
+					<p:inputText id="inputText-numero"
+						value="#{cadastroArbitroBean.arbitro.pessoa.documento.numero}" />
 
-				<p:outputLabel value="Estado do Documeto"
-					for="selectOneRadio-estdoDocumento" />
-				<p:selectOneRadio id="selectOneRadio-estdoDocumento" required="true"
-					requiredMessage="O Estado do Documento é de preenchimento obrigatório">
+					<p:outputLabel value="Estado do Documeto"
+						for="selectOneRadio-estdoDocumento" />
+					<p:selectOneRadio id="selectOneRadio-estdoDocumento"
+						value="#{cadastroArbitroBean.arbitro.pessoa.documento.estadoDocumento}">
 
-					<f:selectItem itemLabel="Normal" itemValue="N" />
-					<f:selectItem itemLabel="Vitalício" itemValue="V" />
-				</p:selectOneRadio>
+						<f:selectItem itemLabel="Normal" itemValue="N" />
+						<f:selectItem itemLabel="Vitalício" itemValue="V" />
+					</p:selectOneRadio>
 
-				<p:outputLabel for="dataEmissao" value="Data de Emissão" />
-				<p:calendar id="dataEmissao" required="true"
-					requiredMessage="A Data de Emissão é de preenchimento obrigatório" />
+					<p:outputLabel for="dataEmissao" value="Data de Emissão" />
+					<p:calendar id="dataEmissao"
+						value="#{cadastroArbitroBean.arbitro.pessoa.documento.dataEmissao}" />
 
-				<p:outputLabel for="dataValidade" value="Data de Validade" />
-				<p:calendar id="dataValidade" required="true"
-					requiredMessage="A Data de Validade é de preenchimento obrigatório" />
+					<p:outputLabel for="dataValidade" value="Data de Validade" />
+					<p:calendar id="dataValidade"
+						value="#{cadastroArbitroBean.arbitro.pessoa.documento.dataValidade}" />
 
-				<p:outputLabel value="Local de Emissão" for="inputText-localemissao" />
-				<p:inputText id="inputText-localemissao" maxlength="200"
-					required="true"
-					requiredMessage="O Local de Emissão é de preenchimento obrigatório" />
+					<p:outputLabel value="Local de Emissão"
+						for="inputText-localemissao" />
+					<p:inputText id="inputText-localemissao"
+						value="#{cadastroArbitroBean.arbitro.pessoa.documento.localEmissao}" />
 
-				<p:outputLabel value="Nível de Árbitro" for="nivelArbitro" />
-				<p:selectOneMenu id="nivelArbitro">
-					<f:selectItem itemLabel="Seleccione o Nível"
-						noSelectionOption="true" />
-					<f:selectItem itemLabel="I" itemValue="I" />
-					<f:selectItem itemLabel="II" itemValue="II" />
-					<f:selectItem itemLabel="III" itemValue="III" />
-				</p:selectOneMenu>
+					<p:outputLabel value="Nível de Árbitro" for="nivelArbitro" />
+					<p:selectOneMenu id="nivelArbitro"
+						value="#{cadastroArbitroBean.arbitro.nivel}">
+						<f:selectItem itemLabel="Seleccione o Nível"
+							noSelectionOption="true" />
+						<f:selectItem itemLabel="I" itemValue="I" />
+						<f:selectItem itemLabel="II" itemValue="II" />
+						<f:selectItem itemLabel="III" itemValue="III" />
+					</p:selectOneMenu>
 
-			</p:panelGrid>
+				</p:panelGrid>
 
-			<p:toolbar>
-				<p:toolbarGroup>
-					<p:commandButton value="Salvar" id="commandButton-salvar"
-						icon="ui-icon-disk" />
-				</p:toolbarGroup>
-			</p:toolbar>
-		</div>
+				<p:toolbar>
+					<p:toolbarGroup>
+						<p:commandButton value="Salvar" id="commandButton-salvar"
+							icon="ui-icon-disk" update="frm"
+							action="#{cadastroArbitroBean.salvar()}" />
+					</p:toolbarGroup>
+				</p:toolbar>
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>

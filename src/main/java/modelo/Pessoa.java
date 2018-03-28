@@ -3,6 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,6 +42,7 @@ public class Pessoa implements Serializable {
 	private byte[] imagem;
 	private String imagemPath;
 
+	@Inject
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_documento")
 	private Documento documento = new Documento();

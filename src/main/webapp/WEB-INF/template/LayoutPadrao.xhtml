@@ -42,15 +42,28 @@
 			<h:form style="display:inline-block">
 				<p:menubar styleClass="menu-sistema">
 					<p:submenu label="Cadastros">
-						<p:menuitem value="Atletas" outcome="cadastroAtleta" />
+						<p:menuitem value="Atleta" outcome="cadastroAtleta" />
 
-						<p:menuitem value="Árbitros" />
+						<p:menuitem value="Árbitro" outcome="cadastroArbitro" />
 
-						<p:menuitem value="Equipas" />
+						<p:menuitem value="Equipa" outcome="cadastroEquipa" />
 
-						<p:menuitem value="Treinadores" />
+						<p:menuitem value="Treinador" outcome="cadastroTreinador" />
 						<p:separator />
-						<p:menuitem value="Utilizadores" />
+						<p:menuitem value="Utilizador" />
+					</p:submenu>
+
+					<p:submenu label="Transferências">
+						<p:menuitem value="Atleta" />
+						<p:menuitem value="Treinador" />
+					</p:submenu>
+
+					<p:submenu label="Listagens">
+
+						<p:menuitem value="Atletas" outcome="listagemAtletas" />
+						<p:menuitem value="Árbitros" />
+						<p:menuitem value="Equipas" outcome="listagemEquipas" />
+						<p:menuitem value="Treinadores" />
 					</p:submenu>
 					<p:menuitem value="Sair" />
 				</p:menubar>

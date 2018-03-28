@@ -14,46 +14,43 @@
 		<p:messages closable="true" />
 
 		<h:form id="frm">
-
 			<div class="ui-fluid">
 				<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
 					styleClass="ui-noborder"
 					columnClasses="ui-grid-col-2, ui-grid-col-4,ui-grid-col-2, ui-grid-col-4">
 
 					<p:outputLabel value="Nome" for="inputText-nome" />
-					<p:inputText id="inputText-nome" maxlength="70" required="true"
-						requiredMessage="O nome é de preenchimento obrigatório" />
+					<p:inputText id="inputText-nome"
+						value="#{cadastroTreinadorBean.treinador.pessoa.nome}" />
 
 					<p:outputLabel value="Apelido" for="inputText-apelido" />
-					<p:inputText id="inputText-apelido" maxlength="70" required="true"
-						requiredMessage="O Apelido é de preenchimento obrigatório" />
+					<p:inputText id="inputText-apelido"
+						value="#{cadastroTreinadorBean.treinador.pessoa.apelido}" />
 
 					<p:outputLabel for="selectOneRadio-sexo" value="Sexo:" />
-					<p:selectOneRadio id="selectOneRadio-sexo" required="true"
-						requiredMessage="O sexo é de preenchimento obrigatório">
+					<p:selectOneRadio id="selectOneRadio-sexo"
+						value="#{cadastroTreinadorBean.treinador.pessoa.genero}">
 
 						<f:selectItem itemLabel="Masculino" itemValue="M" />
 						<f:selectItem itemLabel="Feminino" itemValue="F" />
 					</p:selectOneRadio>
 
 					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
-					<p:calendar id="dataNascimento" required="true"
-						requiredMessage="A Data de Nascimento é de preenchimento obrigatório" />
+					<p:calendar id="dataNascimento"
+						value="#{cadastroTreinadorBean.treinador.pessoa.dataNascimento}" />
 
 					<p:outputLabel value="Nacionalidade" for="inputText-nacionalidade" />
-					<p:inputText id="inputText-nacionalidade" maxlength="70"
-						required="true"
-						requiredMessage="A Nacionalidade é de preenchimento obrigatório" />
+					<p:inputText id="inputText-nacionalidade"
+						value="#{cadastroTreinadorBean.treinador.pessoa.nacionalidade}" />
 
 					<p:outputLabel value="Naturalidade" for="inputText-naturalidade" />
-					<p:inputText id="inputText-naturalidade" maxlength="70"
-						required="true"
-						requiredMessage="A Naturalidade é de preenchimento obrigatório" />
+					<p:inputText id="inputText-naturalidade"
+						value="#{cadastroTreinadorBean.treinador.pessoa.naturalidade}" />
 
 					<p:outputLabel for="selectOneRadio-estado_Civil"
 						value="Estado Civil:" />
-					<p:selectOneRadio id="selectOneRadio-estado_Civil" required="true"
-						requiredMessage="O Estado Civil é de preenchimento obrigatório">
+					<p:selectOneRadio id="selectOneRadio-estado_Civil"
+						value="#{cadastroTreinadorBean.treinador.pessoa.estadoCivil}">
 
 						<f:selectItem itemLabel="Casado(a)" itemValue="Casado(a)" />
 						<f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro(a)" />
@@ -62,29 +59,33 @@
 					</p:selectOneRadio>
 
 					<p:outputLabel value="Nome da Mãe" for="inputText-nomeMae" />
-					<p:inputText id="inputText-nomeMae" maxlength="70" />
+					<p:inputText id="inputText-nomeMae"
+						value="#{cadastroTreinadorBean.treinador.pessoa.nomeMae}" />
 
 					<p:outputLabel value="Nome do Pai" for="inputText-nomePai" />
-					<p:inputText id="inputText-nomePai" maxlength="70" />
+					<p:inputText id="inputText-nomePai"
+						value="#{cadastroTreinadorBean.treinador.pessoa.nomePai}" />
 
 					<p:outputLabel value="Telefone" for="inputText-telefone" />
-					<p:inputText id="inputText-telefone" maxlength="70" />
+					<p:inputText id="inputText-telefone"
+						value="#{cadastroTreinadorBean.treinador.pessoa.telefone}" />
 
 					<p:outputLabel value="Celular" for="inputText-celular" />
-					<p:inputText id="inputText-celular" maxlength="70" />
+					<p:inputText id="inputText-celular"
+						value="#{cadastroTreinadorBean.treinador.pessoa.celular}" />
 
 					<p:outputLabel value="E-mail" for="inputText-email" />
-					<p:inputText id="inputText-email" maxlength="80" required="true"
-						requiredMessage="O email é de preenchimento obrigatório" />
+					<p:inputText id="inputText-email"
+						value="#{cadastroTreinadorBean.treinador.pessoa.email}" />
 
 
 					<p:outputLabel value="Endereço" for="inputText-endereco" />
-					<p:inputText id="inputText-endereco" maxlength="200"
-						required="true"
-						requiredMessage="O endereço é de preenchimento obrigatório" />
+					<p:inputText id="inputText-endereco"
+						value="#{cadastroTreinadorBean.treinador.pessoa.endereco}" />
 
 					<p:outputLabel value="NUIT" for="inputText-nuit" />
-					<p:inputText id="inputText-nuit" maxlength="9" />
+					<p:inputText id="inputText-nuit"
+						value="#{cadastroTreinadorBean.treinador.pessoa.nuit}" />
 				</p:panelGrid>
 
 				<p:separator />
@@ -94,27 +95,22 @@
 					columnClasses="ui-grid-col-2, ui-grid-col-4,ui-grid-col-2, ui-grid-col-4">
 
 					<p:outputLabel value="Documento" for="inputText-documento" />
-					<p:selectOneMenu rendered="true" id="inputText-documento"
-						maxlength="9">
+					<p:selectOneMenu
+						value="#{cadastroTreinadorBean.treinador.pessoa.documento.tipo}"
+						id="inputText-documento">
 						<f:selectItem itemLabel="Escolha o Tipo" noSelectionOption="true" />
-						<f:selectItem itemLabel="Bilhete de Identidade"
-							itemValue="Bilhete de Identidade" />
-						<f:selectItem itemLabel="Carta de Condução"
-							itemValue="Carta de Condução" />
-						<f:selectItem itemLabel="Cédula Pessoal"
-							itemValue="Cédula Pessoal" />
-						<f:selectItem itemLabel="Passaporte" itemValue="Passaporte" />
+						<f:selectItems value="#{cadastroTreinadorBean.documentosTipo}" var="tipos" itemValue="#{tipos}" itemLabel="#{tipos.descricao}" /> />
+						
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Número" for="inputText-numero" />
-					<p:inputText id="inputText-numero" maxlength="15" required="true"
-						requiredMessage="O Número é de preenchimento obrigatório" />
+					<p:inputText id="inputText-numero"
+						value="#{cadastroTreinadorBean.treinador.pessoa.documento.numero}" />
 
 					<p:outputLabel value="Estado do Documeto"
 						for="selectOneRadio-estdoDocumento" />
 					<p:selectOneRadio id="selectOneRadio-estdoDocumento"
-						required="true"
-						requiredMessage="O Estado do Documento é de preenchimento obrigatório">
+						value="#{cadastroTreinadorBean.treinador.pessoa.documento.estadoDocumento}">
 
 						<f:selectItem itemLabel="Normal" itemValue="N" />
 						<f:selectItem itemLabel="Vitalício" itemValue="V" />
@@ -122,20 +118,20 @@
 
 					<p:outputLabel value="Local de Emissão"
 						for="inputText-localemissao" />
-					<p:inputText id="inputText-localemissao" maxlength="200"
-						required="true"
-						requiredMessage="O Local de Emissão é de preenchimento obrigatório" />
+					<p:inputText id="inputText-localemissao"
+						value="#{cadastroTreinadorBean.treinador.pessoa.documento.localEmissao}" />
 
 					<p:outputLabel for="dataEmissao" value="Data de Emissão" />
-					<p:calendar id="dataEmissao" required="true"
-						requiredMessage="A Data de Emissão é de preenchimento obrigatório" />
+					<p:calendar id="dataEmissao"
+						value="#{cadastroTreinadorBean.treinador.pessoa.documento.dataEmissao}" />
 
 					<p:outputLabel for="dataValidade" value="Data de Validade" />
-					<p:calendar id="dataValidade" required="true"
-						requiredMessage="A Data de Validade é de preenchimento obrigatório" />
+					<p:calendar id="dataValidade"
+						value="#{cadastroTreinadorBean.treinador.pessoa.documento.dataValidade}" />
 
 					<p:outputLabel value="Nível de Treinador" for="nivelTreinador" />
-					<p:selectOneMenu id="nivelTreinador">
+					<p:selectOneMenu id="nivelTreinador"
+						value="#{cadastroTreinadorBean.treinador.nivel}">
 						<f:selectItem itemLabel="Seleccione o Nível"
 							noSelectionOption="true" />
 						<f:selectItem itemLabel="I" itemValue="I" />
@@ -148,7 +144,8 @@
 				<p:toolbar>
 					<p:toolbarGroup>
 						<p:commandButton value="Salvar" id="commandButton-salvar"
-							icon="ui-icon-disk" update="frm" />
+							icon="ui-icon-disk" action="#{cadastroTreinadorBean.salvar()}"
+							update="frm" />
 					</p:toolbarGroup>
 				</p:toolbar>
 			</div>

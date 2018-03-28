@@ -1,0 +1,70 @@
+<!DOCTYPE html >
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Atletas</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1 style="margin-top: 20px; margin-bottom: 20px">Lista de
+			Atletas</h1>
+
+		<p:toolbar style="margin-bottom:10px">
+			<p:toolbarGroup>
+				<p:button value="Novo" />
+
+				<p:button icon="ui-icon-search" />
+			</p:toolbarGroup>
+		</p:toolbar>
+
+		<p:dataTable value="#{cadastroAtletaBean.atletas}" var="atleta"
+			id="tabelaAtletas" rows="10" paginator="true"
+			paginatorPosition="bottom" rowsPerPageTemplate="10,20,30" paginatorAlwaysVisible="false">
+			<p:column headerText="ID" style="text-align:center;width:40px">
+				<h:outputText value="#{atleta.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" style="text-align:center">
+				<h:outputText value="#{atleta.pessoa.nome}" />
+			</p:column>
+
+			<p:column headerText="Apelido" style="text-align:center">
+				<h:outputText value="#{atleta.pessoa.apelido}" />
+			</p:column>
+
+			<p:column headerText="Data de Nascimento" style="text-align:center">
+				<h:outputText value="#{atleta.pessoa.dataNascimento}" />
+			</p:column>
+
+			<p:column headerText="Equipa" style="text-align:center">
+				<h:outputText value="#{atleta.equipa.nome}" />
+			</p:column>
+
+			<p:column headerText="Escalão" style="text-align:center">
+				<h:outputText value="#{atleta.escalao}" />
+			</p:column>
+
+			<p:column headerText="Posição" style="text-align:center">
+				<h:outputText value="#{atleta.posicao}" />
+			</p:column>
+
+			<p:column style="text-align:center; width:80px">
+				<p:button icon="ui-icon-pencil" title="Editar"
+					outcome="/cadastroAtleta">
+					<f:param name="atleta" value="#{atleta.id}" />
+				</p:button>
+				<p:commandButton icon="ui-icon-trash" title="Remover"
+					action="#{cadastroAtletaBean.remover()}">
+					<f:setPropertyActionListener value="#{atleta}"
+						target="#{cadastroAtletaBean.atletaEscolhido}" />
+				</p:commandButton>
+			</p:column>
+
+
+		</p:dataTable>
+	</ui:define>
+</ui:composition>
