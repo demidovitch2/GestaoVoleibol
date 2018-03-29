@@ -2,7 +2,6 @@ package modelo;
 
 import java.io.Serializable;
 
-import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,14 +42,13 @@ public class Atleta implements Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(name = "id_equipa")
 	private Equipa equipa;
 
-	@Inject
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa;
+	private Pessoa pessoa = new Pessoa();
 
 	public String getPosicao() {
 		return Posicao;

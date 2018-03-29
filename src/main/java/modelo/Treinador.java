@@ -23,17 +23,16 @@ public class Treinador implements Serializable {
 	@Column(name = "id_treinador")
 	private Long id;
 
-	@Inject
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa;
+	private Pessoa pessoa= new Pessoa();
 
 	private String nivel;
 
 	public Long getId() {
 		return id;
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}

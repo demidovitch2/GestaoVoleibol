@@ -9,6 +9,7 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title><ui:insert name="titulo">Sistema de Gestão desportiva VoleiBol</ui:insert></title>
 	<h:outputStylesheet library="css" name="sistema.css" />
+	<h:outputStylesheet library="javascript" name="app.js" />
 </h:head>
 
 <h:body>
@@ -31,7 +32,7 @@
 		<div>
 			<span
 				style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
-				<h1>AVCM</h1>
+				<h1 onclick="index">AVCM</h1>
 			</span>
 		</div>
 
@@ -39,7 +40,7 @@
 			<span
 				style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
 				Olá Utilizador </span>
-			<h:form style="display:inline-block">
+			<h:form styleClass="ui-fluid" style="display:inline-block">
 				<p:menubar styleClass="menu-sistema">
 					<p:submenu label="Cadastros">
 						<p:menuitem value="Atleta" outcome="cadastroAtleta" />
@@ -61,7 +62,7 @@
 					<p:submenu label="Listagens">
 
 						<p:menuitem value="Atletas" outcome="listagemAtletas" />
-						<p:menuitem value="Árbitros" />
+						<p:menuitem value="Árbitros" outcome="listagemArbitros" />
 						<p:menuitem value="Equipas" outcome="listagemEquipas" />
 						<p:menuitem value="Treinadores" />
 					</p:submenu>
@@ -69,13 +70,20 @@
 				</p:menubar>
 			</h:form>
 		</div>
+		<div style="float: right">
+			<a href="#" class="aw-toggle  js-toggle"><i class="fa  fa-bars"></i></a>
+		</div>
 		<div style="clear: both;"></div>
 	</header>
 
-	<div id="conteudo">
+	<aside class="aw-sidebar js-sidebar">
+		<ui:include src="/WEB-INF/template/Menu.xhtml" />
+	</aside>
+
+	<section class="aw-conteudo js-conteudo">
 
 		<ui:insert name="corpo" />
-	</div>
+	</section>
 
 	<p:separator style="margin-top:20px" />
 

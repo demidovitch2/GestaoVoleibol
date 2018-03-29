@@ -7,10 +7,6 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
-	<f:metadata>
-		<o:viewParam name="equipa" value="#{cadastroEquipaBean.equipa}" />
-	</f:metadata>
-
 	<ui:define name="titulo">#{cadastroEquipaBean.editando ? "Edição da Equipa" : "Nova Equipa"}</ui:define>
 	<ui:define name="corpo">
 		<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroEquipaBean.editando
@@ -18,8 +14,8 @@
 
 		<h:form id="frm">
 			<div class="ui-fluid">
-				<p:panelGrid columns="2" layout="grid" style="margin-top: 20px;"
-					styleClass="ui-noborder"
+				<p:panelGrid columns="2" layout="grid"
+					style="margin-top: 20px" styleClass="ui-noborder"
 					columnClasses="ui-grid-col-2, ui-grid-col-4">
 
 					<p:outputLabel value="Nome" for="inputText-nome" />

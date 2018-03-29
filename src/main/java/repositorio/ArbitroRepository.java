@@ -26,7 +26,7 @@ public class ArbitroRepository implements Serializable {
 
 	@Transactional
 	public void remove(Arbitro arbitro) {
-		manager.remove(arbitro);
+		manager.remove(manager.merge(arbitro));
 	}
 
 	public Arbitro porId(Long id) {

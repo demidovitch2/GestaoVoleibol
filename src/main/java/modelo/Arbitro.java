@@ -2,7 +2,6 @@ package modelo;
 
 import java.io.Serializable;
 
-import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,15 +26,14 @@ public class Arbitro implements Serializable {
 	@NotNull
 	private String nivel;
 
-	@Inject
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa;
+	private Pessoa pessoa = new Pessoa();
 
 	public Long getId() {
 		return id;
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}

@@ -34,11 +34,10 @@ public class CadastroEquipaBean implements Serializable {
 
 	private List<Treinador> treinadores;
 
-	@Inject
-	private Equipa equipaEscolhido;
+	private Equipa equipaEscolhido = new Equipa();
 
 	public Equipa getEquipa() {
-		return equipa;
+		return this.equipa;
 	}
 
 	public void setEquipa(Equipa equipa) {
@@ -55,7 +54,7 @@ public class CadastroEquipaBean implements Serializable {
 
 	
 	public Equipa getEquipaEscolhido() {
-		return equipaEscolhido;
+		return this.equipaEscolhido;
 	}
 
 	public void setEquipaEscolhido(Equipa equipaEscolhido) {
@@ -65,7 +64,7 @@ public class CadastroEquipaBean implements Serializable {
 	public void salvar() {
 		equipaRepository.salvar(equipa);
 
-		equipa = new Equipa();
+		this.equipa = new Equipa();
 		FacesContext context = FacesContext.getCurrentInstance();
 
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Equipa Adicionada com Sucesso", "Registo");

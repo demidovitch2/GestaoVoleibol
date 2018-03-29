@@ -34,13 +34,12 @@ public class CadastroAtletaBean implements Serializable {
 	@Inject
 	private Atleta atleta;
 	
-	@Inject
-	private Atleta atletaEscolhido;
+	private Atleta atletaEscolhido = new Atleta();
 
 	private List<Equipa> equipas;
 
 	public Atleta getAtleta() {
-		return atleta;
+		return this.atleta;
 	}
 
 	public void setAtleta(Atleta atleta) {
@@ -48,7 +47,7 @@ public class CadastroAtletaBean implements Serializable {
 	}
 	
 	public Atleta getAtletaEscolhido() {
-		return atletaEscolhido;
+		return this.atletaEscolhido;
 	}
 
 	public void setAtletaEscolhido(Atleta atletaEscolhido) {
@@ -58,7 +57,7 @@ public class CadastroAtletaBean implements Serializable {
 	public void salvar() {
 		atletaRepository.salvar(atleta);
 
-		atleta = new Atleta();
+		this.atleta = new Atleta();
 	}
 	
 	public void remover() {

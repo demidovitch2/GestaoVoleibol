@@ -4,7 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
 	<ui:define name="titulo">Atletas</ui:define>
 
@@ -23,7 +23,8 @@
 
 		<p:dataTable value="#{cadastroAtletaBean.atletas}" var="atleta"
 			id="tabelaAtletas" rows="10" paginator="true"
-			paginatorPosition="bottom" rowsPerPageTemplate="10,20,30" paginatorAlwaysVisible="false">
+			paginatorPosition="bottom" rowsPerPageTemplate="10,20,30"
+			paginatorAlwaysVisible="false">
 			<p:column headerText="ID" style="text-align:center;width:40px">
 				<h:outputText value="#{atleta.id}" />
 			</p:column>
@@ -55,7 +56,7 @@
 			<p:column style="text-align:center; width:80px">
 				<p:button icon="ui-icon-pencil" title="Editar"
 					outcome="/cadastroAtleta">
-					<f:param name="atleta" value="#{atleta.id}" />
+
 				</p:button>
 				<p:commandButton icon="ui-icon-trash" title="Remover"
 					action="#{cadastroAtletaBean.remover()}">

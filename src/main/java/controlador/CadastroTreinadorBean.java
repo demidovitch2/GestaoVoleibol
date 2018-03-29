@@ -25,7 +25,7 @@ public class CadastroTreinadorBean implements Serializable {
 	private Treinador treinador;
 
 	public Treinador getTreinador() {
-		return treinador;
+		return this.treinador;
 	}
 
 	public void setTreinador(Treinador treinador) {
@@ -39,7 +39,7 @@ public class CadastroTreinadorBean implements Serializable {
 	public void salvar() {
 		repoTreinador.salvar(treinador);
 
-		treinador = new Treinador();
+		this.treinador = new Treinador();
 	}
 
 }

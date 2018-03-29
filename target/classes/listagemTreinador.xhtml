@@ -4,14 +4,14 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+	xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="titulo">Atletas</ui:define>
+	<ui:define name="titulo">treinadors</ui:define>
 
 	<ui:define name="corpo">
 
 		<h1 style="margin-top: 20px; margin-bottom: 20px">Lista de
-			Atletas</h1>
+			arbitros</h1>
 
 		<p:toolbar style="margin-bottom:10px">
 			<p:toolbarGroup>
@@ -21,47 +21,39 @@
 			</p:toolbarGroup>
 		</p:toolbar>
 
-		<p:dataTable value="#{cadastroAtletaBean.atletas}" var="atleta"
-			id="tabelaAtletas" rows="10" paginator="true"
+		<p:dataTable value="#{cadastroTreinadorBean.arbitros}" var="arbitro"
+			id="tabelaArbitros" rows="10" paginator="true"
 			paginatorPosition="bottom" rowsPerPageTemplate="10,20,30"
 			paginatorAlwaysVisible="false">
 			<p:column headerText="ID" style="text-align:center;width:40px">
-				<h:outputText value="#{atleta.id}" />
+				<h:outputText value="#{arbitro.id}" />
 			</p:column>
 
 			<p:column headerText="Nome" style="text-align:center">
-				<h:outputText value="#{atleta.pessoa.nome}" />
+				<h:outputText value="#{arbitro.pessoa.nome}" />
 			</p:column>
 
 			<p:column headerText="Apelido" style="text-align:center">
-				<h:outputText value="#{atleta.pessoa.apelido}" />
+				<h:outputText value="#{arbitro.pessoa.apelido}" />
 			</p:column>
 
 			<p:column headerText="Data de Nascimento" style="text-align:center">
-				<h:outputText value="#{atleta.pessoa.dataNascimento}" />
+				<h:outputText value="#{arbitro.pessoa.dataNascimento}" />
 			</p:column>
 
-			<p:column headerText="Equipa" style="text-align:center">
-				<h:outputText value="#{atleta.equipa.nome}" />
-			</p:column>
-
-			<p:column headerText="Escalão" style="text-align:center">
-				<h:outputText value="#{atleta.escalao}" />
-			</p:column>
-
-			<p:column headerText="Posição" style="text-align:center">
-				<h:outputText value="#{atleta.posicao}" />
+			<p:column headerText="Nivel" style="text-align:center">
+				<h:outputText value="#{arbitro.nivel}" />
 			</p:column>
 
 			<p:column style="text-align:center; width:80px">
 				<p:button icon="ui-icon-pencil" title="Editar"
-					outcome="/cadastroAtleta">
+					outcome="/cadastroArbitro">
 
 				</p:button>
 				<p:commandButton icon="ui-icon-trash" title="Remover"
-					action="#{cadastroAtletaBean.remover()}">
-					<f:setPropertyActionListener value="#{atleta}"
-						target="#{cadastroAtletaBean.atletaEscolhido}" />
+					action="#{cadastroArbitroBean.remover()}">
+					<f:setPropertyActionListener value="#{arbitro}"
+						target="#{cadastroArbitroBean.arbitroEscolhido}" />
 				</p:commandButton>
 			</p:column>
 
