@@ -1,0 +1,106 @@
+<!DOCTYPE html >
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Detalhes do Atleta</ui:define>
+
+	<ui:define name="corpo">
+		<h1 style="margin-top: 20px; margin-bottom: 20px">Detalhes do
+			Atleta</h1>
+
+		<p:tabView>
+			<p:tab title="Atleta">
+				<p:panelGrid columns="2" style="margin: 0  ">
+					<f:facet name="header">
+						<p:graphicImage name="images/volleyball.png" />
+					</f:facet>
+
+					<h:outputText value="Name:" />
+					<h:outputText value="Manuel Moisés Manhiça" />
+
+					<h:outputText value="Equipa:" />
+					<h:outputText value="Académica de Maputo" />
+
+					<h:outputText value="Posicão:" />
+					<h:outputText value="Oposto" />
+
+					<h:outputText value="Número:" />
+					<h:outputText value="11" />
+					
+					<h:outputText value="Altura:" />
+					<h:outputText value="183cm" />
+					
+					<h:outputText value="Peso:" />
+					<h:outputText value="68kg" />
+				</p:panelGrid>
+			</p:tab>
+			<p:tab title="Dados Pessoais">
+				<h:panelGrid columns="2" cellpadding="10">
+					
+					<h:outputText value="Name:" />
+					<h:outputText value="Manuel Moisés Manhiça" />
+
+					<h:outputText value="Sexo:" />
+					<h:outputText value="Masculino" />
+
+					<h:outputText value="Data de Nascimento:" />
+					<h:outputText value="04-07-1992" />
+
+					<h:outputText value="Nacionalidade:" />
+					<h:outputText value="Moçambicana" />
+					
+					<h:outputText value="Naturalidade:" />
+					<h:outputText value="Maputo" />
+					
+					<h:outputText value="Estado Civil:" />
+					<h:outputText value="Solterio(a)" />
+					
+					<h:outputText value="Nome da Mãe:" />
+					<h:outputText value="Rosa Alberto Machava" />
+					
+					<h:outputText value="Nome do Pai:" />
+					<h:outputText value="Salomão Moisés Manhiça" />
+					
+					<h:outputText value="Telefone:" />
+					<h:outputText value="824769044" />
+					
+					<h:outputText value="Celular:" />
+					<h:outputText value="870407920" />
+					
+					<h:outputText value="E-mail:" />
+					<h:outputText value="substancia@gestaovoleibol.com" />
+					
+					<h:outputText value="Endereço:" />
+					<h:outputText value="Magoanine" />
+					
+					<h:outputText value="Nuit:" />
+					<h:outputText value="2454535838" />
+					
+					<h:outputText value="Documento:" />
+					<h:outputText value="Bilhente de Identidade" />
+					
+					<h:outputText style="text-type:bold" value="Número do Doc.:" />
+					<h:outputText value="2274554534755K" />
+					
+					<h:outputText value="Estado do Documento:" />
+					<h:outputText value="Vitalício" />
+					
+					<h:outputText value="Data de Emissão:" />
+					<h:outputText value="" />
+					
+					<h:outputText value="Data de Validade:" />
+					<h:outputText value="" />
+					
+					<h:outputText value="Local de Emissão:" />
+					<h:outputText value="" />
+					
+					</h:panelGrid>
+			</p:tab>
+		</p:tabView>
+			<p:button icon="ui-icon-arrowthick-1-w" value="Voltar" />
+	</ui:define>
+</ui:composition>

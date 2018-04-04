@@ -45,11 +45,15 @@
 				<h:outputText value="#{arbitro.nivel}" />
 			</p:column>
 
-			<p:column style="text-align:center; width:80px">
+			<p:column style="text-align:center; width:100px">
 				<p:button icon="ui-icon-pencil" title="Editar"
 					outcome="/cadastroArbitro">
-
 				</p:button>
+
+				<p:button icon="ui-icon-print" title="Detalhar"
+					outcome="/detalhesArbitro">
+				</p:button>
+
 				<p:commandButton icon="ui-icon-trash" title="Remover"
 					action="#{cadastroArbitroBean.remover()}">
 					<f:setPropertyActionListener value="#{arbitro}"

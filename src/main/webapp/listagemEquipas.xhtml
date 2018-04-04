@@ -51,10 +51,16 @@
 				<h:outputText value="#{equipa.delegado}" />
 			</p:column>
 
-			<p:column style="text-align:center; width:80px">
+			<p:column style="text-align:center; width:100px">
+			
 				<p:button icon="ui-icon-pencil" title="Editar"
 					outcome="/cadastroEquipa">
 				</p:button>
+				
+				<p:button icon="ui-icon-print" title="Detalhar"
+					outcome="/detalhesEquipa">
+				</p:button>
+				
 				<p:commandButton icon="ui-icon-trash" title="Remover"
 					action="#{cadastroEquipaBean.remover()}">
 					<f:setPropertyActionListener value="#{equipa}"

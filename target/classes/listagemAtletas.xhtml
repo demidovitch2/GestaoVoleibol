@@ -53,19 +53,24 @@
 				<h:outputText value="#{atleta.posicao}" />
 			</p:column>
 
-			<p:column style="text-align:center; width:80px">
+			<p:column style="text-align:center; width:100px">
+
 				<p:button icon="ui-icon-pencil" title="Editar"
 					outcome="/cadastroAtleta">
-
 				</p:button>
-				<p:commandButton icon="ui-icon-trash" title="Remover"
+
+
+				<p:button icon="ui-icon-print" title="Detalhar"
+					outcome="/detalhesAtleta">
+				</p:button>
+
+				<p:commandLink icon="ui-icon-trash" title="Remover"
 					action="#{cadastroAtletaBean.remover()}">
 					<f:setPropertyActionListener value="#{atleta}"
 						target="#{cadastroAtletaBean.atletaEscolhido}" />
-				</p:commandButton>
+				</p:commandLink>
+
 			</p:column>
-
-
 		</p:dataTable>
 	</ui:define>
 </ui:composition>
