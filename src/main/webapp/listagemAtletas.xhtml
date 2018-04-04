@@ -64,11 +64,11 @@
 					outcome="/detalhesAtleta">
 				</p:button>
 
-				<p:commandLink icon="ui-icon-trash" title="Remover"
+				<p:commandButton icon="ui-icon-trash" title="Remover"
 					action="#{cadastroAtletaBean.remover()}">
 					<f:setPropertyActionListener value="#{atleta}"
 						target="#{cadastroAtletaBean.atletaEscolhido}" />
-				</p:commandLink>
+				</p:commandButton>
 
 			</p:column>
 		</p:dataTable>
