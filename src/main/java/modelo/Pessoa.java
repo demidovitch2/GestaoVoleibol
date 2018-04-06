@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "tb_pessoa")
 @Entity
@@ -23,19 +27,25 @@ public class Pessoa implements Serializable {
 	@GeneratedValue
 	@Column(name = "id_pessoa")
 	private Long id;
-
+	@NotEmpty(message="Campo Obrigatório")
 	private String nome;
+	@NotEmpty(message="Campo Obrigatório")
 	private String apelido;
+	@NotEmpty(message="Campo Obrigatório")
 	private String genero;
+	@NotNull(message="Campo Obrigatório")
 	private Date dataNascimento;
 	private String nomePai;
 	private String nomeMae;
+	@NotEmpty(message="Campo Obrigatório")
 	private String nacionalidade;
 	private String naturalidade;
+	@NotEmpty(message="Campo Obrigatório")
 	private String estadoCivil;
 	private String endereco;
 	private String telefone;
 	private String celular;
+	@Email(message="Endereço electrónico inválido")
 	private String email;
 	private String nuit;
 	private byte[] imagem;
@@ -43,6 +53,7 @@ public class Pessoa implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_documento")
+	@NotNull
 	private Documento documento = new Documento();
 
 	@OneToOne

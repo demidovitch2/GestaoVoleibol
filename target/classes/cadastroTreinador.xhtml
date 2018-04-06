@@ -6,14 +6,17 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-	<ui:define name="titulo">Novo Treinador</ui:define>
+	<ui:define name="titulo">Treinador</ui:define>
 
 	<ui:define name="corpo">
-		<h1 style="margin-top: 20px; margin-bottom: 20px">Novo Treinador</h1>
 
 		<p:messages closable="true" />
 
 		<h:form id="frm">
+			<p:messages autoUpdate="true" closable="true" />
+			<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroTreinadorBean.editando
+				? "Edição do Treinador" : "Novo Treinador"}</h1>
+
 			<div class="ui-fluid">
 				<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
 					styleClass="ui-noborder"
@@ -31,8 +34,8 @@
 					<p:selectOneRadio id="selectOneRadio-sexo"
 						value="#{cadastroTreinadorBean.treinador.pessoa.genero}">
 
-						<f:selectItem itemLabel="Masculino" itemValue="M" />
-						<f:selectItem itemLabel="Feminino" itemValue="F" />
+						<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+						<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
 					</p:selectOneRadio>
 
 					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
@@ -99,7 +102,8 @@
 						value="#{cadastroTreinadorBean.treinador.pessoa.documento.tipo}"
 						id="inputText-documento">
 						<f:selectItem itemLabel="Escolha o Tipo" noSelectionOption="true" />
-						<f:selectItems value="#{cadastroTreinadorBean.documentosTipo}" var="tipos" itemValue="#{tipos}" itemLabel="#{tipos.descricao}" /> />
+						<f:selectItems value="#{cadastroTreinadorBean.documentosTipo}"
+							var="tipos" itemValue="#{tipos}" itemLabel="#{tipos.descricao}" /> />
 						
 					</p:selectOneMenu>
 
@@ -112,8 +116,8 @@
 					<p:selectOneRadio id="selectOneRadio-estdoDocumento"
 						value="#{cadastroTreinadorBean.treinador.pessoa.documento.estadoDocumento}">
 
-						<f:selectItem itemLabel="Normal" itemValue="N" />
-						<f:selectItem itemLabel="Vitalício" itemValue="V" />
+						<f:selectItem itemLabel="Normal" itemValue="Normal" />
+						<f:selectItem itemLabel="Vitalício" itemValue="Vitalicio" />
 					</p:selectOneRadio>
 
 					<p:outputLabel value="Local de Emissão"
@@ -141,14 +145,24 @@
 
 				</p:panelGrid>
 
-				<p:toolbar>
-					<p:toolbarGroup>
-						<p:commandButton value="Salvar" id="commandButton-salvar"
-							icon="ui-icon-disk" action="#{cadastroTreinadorBean.salvar()}"
-							update="frm" />
-					</p:toolbarGroup>
-				</p:toolbar>
 			</div>
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:commandButton
+						value="#{cadastroTreinadorBean.editando ? '
+							Actualizar' : 'Salvar'}"
+						id="commandButton-salvar" update="frm"
+						action="#{cadastroTreinadorBean.salvar()}" icon="ui-icon-disk" />
+
+					<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
+						outcome="listagemTreinador"
+						rendered="#{cadastroTreinadorBean.editando}" />
+
+					<p:button value="Listar" icon="ui-icon-document"
+						outcome="listagemTreinador"
+						rendered="#{!cadastroTreinadorBean.editando}" />
+				</p:toolbarGroup>
+			</p:toolbar>
 		</h:form>
 	</ui:define>
 </ui:composition>

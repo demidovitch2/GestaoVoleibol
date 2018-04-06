@@ -24,8 +24,9 @@ public class TreinadorRepository implements Serializable {
 		manager.merge(treinador);
 	}
 
+	@Transactional
 	public void remover(Treinador treinador) {
-		manager.remove(treinador);
+		manager.remove(manager.merge(treinador));
 	}
 
 	public Treinador porId(Long id) {

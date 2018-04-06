@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Table(name = "tb_arbitro")
@@ -23,7 +24,7 @@ public class Arbitro implements Serializable {
 	@Column(name = "id_arbitro")
 	private Long id;
 
-	@NotNull
+	@NotEmpty(message="Campo Obrigatório")
 	private String nivel;
 
 	@OneToOne(cascade = CascadeType.ALL)

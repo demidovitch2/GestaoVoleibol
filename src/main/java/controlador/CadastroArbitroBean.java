@@ -1,5 +1,7 @@
 package controlador;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -57,9 +59,25 @@ public class CadastroArbitroBean implements Serializable {
 		arbitroRepo.salvar(arbitro);
 
 		this.arbitro = new Arbitro();
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Árbitro Adicionado com Sucesso", "Registo");
+
+		context.addMessage(null, msg);
 	}
 
 	public void remover() {
 		arbitroRepo.remove(arbitroEscolhido);
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Árbitro Removido com Sucesso", "Registo");
+
+		context.addMessage(null, msg);
+	}
+	
+	public boolean isEditando() {
+		return this.arbitro.getId()!=null;
 	}
 }

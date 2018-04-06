@@ -1,13 +1,17 @@
 package controlador;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.Initialized;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import modelo.Atleta;
 import modelo.Equipa;
 import modelo.Treinador;
+import repositorio.AtletaRepository;
 import repositorio.EquipaRepository;
 import repositorio.TreinadorRepository;
 
@@ -28,13 +32,17 @@ public class CadastroEquipaBean implements Serializable {
 
 	@Inject
 	private TreinadorRepository treinadorRepo;
-
+	
 	@Inject
 	private Equipa equipa;
+	
+	private List<Atleta> atletas;
 
 	private List<Treinador> treinadores;
 
-	private Equipa equipaEscolhido = new Equipa();
+	private Equipa equipaEscolhida = new Equipa();
+
+	private AtletaRepository atletaRepository;
 
 	public Equipa getEquipa() {
 		return this.equipa;
@@ -54,11 +62,11 @@ public class CadastroEquipaBean implements Serializable {
 
 	
 	public Equipa getEquipaEscolhido() {
-		return this.equipaEscolhido;
+		return this.equipaEscolhida;
 	}
 
 	public void setEquipaEscolhido(Equipa equipaEscolhido) {
-		this.equipaEscolhido = equipaEscolhido;
+		this.equipaEscolhida = equipaEscolhido;
 	}
 
 	public void salvar() {
@@ -72,8 +80,16 @@ public class CadastroEquipaBean implements Serializable {
 		context.addMessage(null, msg);
 	}
 	
+	public List<Atleta> getAtletas() {
+		return atletas;
+	}
+
+	public void carregarAtletasPorEquipas() {
+		this.atletas = atletaRepository.getAtletasByEquipa(equipaEscolhida);
+	}
+	
 	public void remover() {
-		equipaRepository.remover(equipaEscolhido);
+		equipaRepository.remover(equipaEscolhida);
 	}
 	
 	public boolean isEditando() {

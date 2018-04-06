@@ -53,19 +53,24 @@
 
 			<p:column style="text-align:center; width:100px">
 			
-				<p:button icon="ui-icon-pencil" title="Editar"
-					outcome="/cadastroEquipa">
-				</p:button>
-				
-				<p:button icon="ui-icon-print" title="Detalhar"
-					outcome="/detalhesEquipa">
-				</p:button>
-				
-				<p:commandButton icon="ui-icon-trash" title="Remover"
-					action="#{cadastroEquipaBean.remover()}">
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					action="/cadastroEquipa">
+					<f:setPropertyActionListener value="#{equipa}"
+						target="#{cadastroEquipaBean.equipa}" />
+				</p:commandButton>
+
+				<p:commandButton icon="ui-icon-print" title="Detalhar"
+					action="/detalhesEquipa">
 					<f:setPropertyActionListener value="#{equipa}"
 						target="#{cadastroEquipaBean.equipaEscolhido}" />
 				</p:commandButton>
+
+				<p:commandButton icon="ui-icon-trash" title="Remover" update="equipaAtletas"
+					action="#{cadastroEquipaBean.remover()}"> 
+					<f:setPropertyActionListener value="#{equipa}"
+						target="#{cadastroEquipaBean.equipaEscolhido}" />
+				</p:commandButton>
+				
 			</p:column>
 
 

@@ -6,14 +6,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
-	<ui:define name="titulo">#{cadastroAtletaBean.editando ? "Edição do Atleta" : "Novo Atleta"}</ui:define>
-
+	<ui:define name="titulo">Atleta</ui:define>
 	<ui:define name="corpo">
-		<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroAtletaBean.editando
-			? "Edição do Atleta" : "Novo Atleta"}</h1>
 
-		<p:messages closable="true" />
 		<h:form id="frm">
+			<p:focus for="message" />
+			<p:messages id="message" autoUpdate="true" closable="true"/>
+
+			<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroAtletaBean.editando
+				? "Edição do Atleta" : "Novo Atleta"}</h1>
 			<div class="ui-fluid" style="margin-top: 20px">
 				<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
 					styleClass="ui-noborder"
@@ -22,23 +23,27 @@
 					<p:outputLabel value="Nome" for="inputText-nome" />
 					<p:inputText id="inputText-nome"
 						value="#{cadastroAtletaBean.atleta.pessoa.nome}" />
+					<p:message rendered="false" for="inputText-nome" />
 
 					<p:outputLabel value="Apelido" for="inputText-apelido" />
 					<p:inputText id="inputText-apelido"
 						value="#{cadastroAtletaBean.atleta.pessoa.apelido}" />
+					<p:message rendered="false" for="inputText-apelido" />
 
 
 					<p:outputLabel for="selectOneRadio-sexo" value="Sexo:" />
 					<p:selectOneRadio id="selectOneRadio-sexo"
 						value="#{cadastroAtletaBean.atleta.pessoa.genero}">
 
-						<f:selectItem itemLabel="Masculino" itemValue="M" />
-						<f:selectItem itemLabel="Feminino" itemValue="F" />
+						<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+						<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
 					</p:selectOneRadio>
+					<p:message rendered="false" for="selectOneRadio-sexo" />
 
 					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
 					<p:calendar id="dataNascimento"
 						value="#{cadastroAtletaBean.atleta.pessoa.dataNascimento}" />
+					<p:message rendered="false" for="dataNascimento" />
 
 					<p:outputLabel value="Nacionalidade" for="inputText-nacionalidade" />
 					<p:inputText id="inputText-nacionalidade"
@@ -78,6 +83,7 @@
 					<p:outputLabel value="E-mail" for="inputText-email" />
 					<p:inputText id="inputText-email"
 						value="#{cadastroAtletaBean.atleta.pessoa.email}" />
+					<p:message rendered="false" for="inputText-email" />
 
 
 					<p:outputLabel value="Endereço" for="inputText-endereco" />
@@ -101,21 +107,22 @@
 						<f:selectItem itemLabel="Escolha o Tipo" noSelectionOption="true" />
 						<f:selectItems value="#{cadastroAtletaBean.documentosTipo}"
 							var="tipos" itemValue="#{tipos}" itemLabel="#{tipos.descricao}" />
-
 					</p:selectOneMenu>
+					<p:message rendered="false" for="inputText-documento" />
 
 					<p:outputLabel value="Número" for="inputText-numero" />
 					<p:inputText id="inputText-numero"
 						value="#{cadastroAtletaBean.atleta.pessoa.documento.numero}"
 						maxlength="15" />
+					<p:message rendered="false" for="inputText-numero" />
 
 					<p:outputLabel value="Estado do Documeto"
 						for="selectOneRadio-estdoDocumento" />
 					<p:selectOneRadio id="selectOneRadio-estdoDocumento"
 						value="#{cadastroAtletaBean.atleta.pessoa.documento.estadoDocumento}">
 
-						<f:selectItem itemLabel="Normal" itemValue="N" />
-						<f:selectItem itemLabel="Vitalício" itemValue="V" />
+						<f:selectItem itemLabel="Normal" itemValue="Normal" />
+						<f:selectItem itemLabel="Vitalício" itemValue="Vitalicio" />
 					</p:selectOneRadio>
 
 					<p:outputLabel for="dataEmissao" value="Data de Emissão" />
@@ -130,6 +137,7 @@
 						for="inputText-localemissao" />
 					<p:inputText id="inputText-localemissao"
 						value="#{cadastroAtletaBean.atleta.pessoa.documento.localEmissao}" />
+					<p:message rendered="false" for="inputText-localemissao" />
 
 				</p:panelGrid>
 
@@ -153,7 +161,6 @@
 						<f:selectItems value="#{cadastroAtletaBean.atletasEscalao}"
 							var="escaloes" itemLabel="#{escaloes.descricao}"
 							itemValue="#{escaloes}" />
-
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Posição" for="inputText-posicao" />
@@ -167,6 +174,10 @@
 
 					</p:selectOneMenu>
 
+					<p:outputLabel value="Número da Camisola" for="inputText-numCam" />
+					<p:inputText id="inputText-numCam"
+						value="#{cadastroAtletaBean.atleta.numero}" />
+
 					<p:outputLabel value="Altura" for="inputText-altura" />
 					<p:inputText id="inputText-altura"
 						value="#{cadastroAtletaBean.atleta.altura}" />
@@ -176,16 +187,24 @@
 						value="#{cadastroAtletaBean.atleta.peso}" />
 
 				</p:panelGrid>
-				<p:toolbar>
-					<p:toolbarGroup>
-						<p:commandButton
-							value="#{cadastroAtletaBean.editando ? '
-							Actualizar' : 'Salvar'}"
-							id="commandButton-salvar" update="frm"
-							action="#{cadastroAtletaBean.salvar()}" icon="ui-icon-disk" />
-					</p:toolbarGroup>
-				</p:toolbar>
 			</div>
+			<p:toolbar>
+				<p:toolbarGroup>
+					<p:commandButton
+						value="#{cadastroAtletaBean.editando ? '
+							Actualizar' : 'Salvar'}"
+						id="commandButton-salvar" update="frm"
+						action="#{cadastroAtletaBean.salvar()}" icon="ui-icon-disk" />
+
+					<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
+						outcome="listagemAtletas"
+						rendered="#{cadastroAtletaBean.editando}" />
+
+					<p:button value="Listar" icon="ui-icon-document"
+						outcome="listagemAtletas"
+						rendered="#{!cadastroAtletaBean.editando}" />
+				</p:toolbarGroup>
+			</p:toolbar>
 		</h:form>
 	</ui:define>
 </ui:composition>

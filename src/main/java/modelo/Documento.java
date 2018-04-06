@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import enumeracao.DocumentoTipo;
 
@@ -22,15 +24,20 @@ public class Documento implements Serializable {
 	@Column(name = "id_documento")
 	private Long id;
 
+	@NotEmpty(message="Campo Obrigatório")
 	private String numero;
+	@NotNull(message="Campo Obrigatório")
 	private DocumentoTipo tipo;
+	@NotEmpty(message="Campo Obrigatório")
 	private String estadoDocumento;
+	@NotNull(message="Campo Obrigatório")
 	private Date dataEmissao;
 	private Date dataValidade;
 	private String fotoFrontalPath;
 	private String fotoTraseiraPath;
 	private byte[] fotoFrontal;
 	private byte[] fotoTraseira;
+	@NotEmpty(message="Campo Obrigatório")
 	private String localEmissao;
 
 	public Long getId() {

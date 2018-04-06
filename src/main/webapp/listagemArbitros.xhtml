@@ -46,13 +46,18 @@
 			</p:column>
 
 			<p:column style="text-align:center; width:100px">
-				<p:button icon="ui-icon-pencil" title="Editar"
-					outcome="/cadastroArbitro">
-				</p:button>
+			
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					action="/cadastroArbitro">
+					<f:setPropertyActionListener value="#{arbitro}"
+						target="#{cadastroArbitroBean.arbitro}" />
+				</p:commandButton>
 
-				<p:button icon="ui-icon-print" title="Detalhar"
-					outcome="/detalhesArbitro">
-				</p:button>
+				<p:commandButton icon="ui-icon-print" title="Detalhar"
+					action="/detalhesArbitro">
+					<f:setPropertyActionListener value="#{arbitro}"
+						target="#{cadastroArbitroBean.arbitroEscolhido}" />
+				</p:commandButton>
 
 				<p:commandButton icon="ui-icon-trash" title="Remover"
 					action="#{cadastroArbitroBean.remover()}">

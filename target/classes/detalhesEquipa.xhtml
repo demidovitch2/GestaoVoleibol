@@ -7,6 +7,8 @@
 	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
 
 	<ui:define name="titulo">Detalhes da Equipa</ui:define>
+	
+	<f:metadata></f:metadata>
 
 	<ui:define name="corpo">
 		<h1 style="margin-top: 20px; margin-bottom: 20px">Detalhes da
@@ -15,39 +17,39 @@
 
 		<p:tabView>
 			<p:tab title="Equipa">
-				<p:panelGrid columns="2" style="margin: 0  ">
+				<p:panelGrid columns="2" style="margin: 0  " styleClass="ui-noborder">
 					<f:facet name="header">
-						<h:outputText style="text-size:40px" value="Académica de Maputo" />
+						<h:outputText style="text-size:40px" value="#{cadastroEquipaBean.equipaEscolhido.nome}" />
 					</f:facet>
 
 
 					<h:outputText value="Sigla:" />
-					<h:outputText value="AACM" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.codigo}" />
 
 					<h:outputText value="Treinador Principal:" />
-					<h:outputText value="Oposto" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.treinador.pessoa.toString()}" />
 
 					<h:outputText value="Treinador Adjunto:" />
-					<h:outputText value="11" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.treinadorAdjunto.pessoa.toString()}" />
 
 					<h:outputText value="Presidente:" />
-					<h:outputText value="183cm" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.presidente}" />
 
 					<h:outputText value="Delegado:" />
-					<h:outputText value="183cm" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.delegado}" />
 
 					<h:outputText value="Médico:" />
-					<h:outputText value="Ma" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.medico}" />
 
 					<h:outputText value="Fisioterapeuta:" />
-					<h:outputText value="183cm" />
+					<h:outputText value="#{cadastroEquipaBean.equipaEscolhido.fisioterapeuta}" />
 				</p:panelGrid>
 
 			</p:tab>
 			<p:tab title="Atletas">
 
 
-				<p:dataTable value="#{cadastroEquipaBean.equipa.atletas}"
+				<p:dataTable value="#{cadastroEquipaBean.atletas}"
 					var="atleta" id="tabelaAtletas" rows="10" paginator="true"
 					paginatorPosition="bottom" rowsPerPageTemplate="10,20,30"
 					paginatorAlwaysVisible="false"
@@ -82,7 +84,6 @@
 							outcome="/cadastroAtleta">
 						</p:button>
 
-
 						<p:button icon="ui-icon-detail" title="Detalhar"
 							outcome="/detalhesAtleta">
 						</p:button>
@@ -92,6 +93,6 @@
 			</p:tab>
 
 		</p:tabView>
-		<p:button icon="ui-icon-arrowthick-1-w" value="Voltar" />
+		<p:button icon="ui-icon-arrowthick-1-w" value="Voltar" outcome="listagemEquipas"/>
 	</ui:define>
 </ui:composition>

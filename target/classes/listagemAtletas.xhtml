@@ -15,7 +15,7 @@
 
 		<p:toolbar style="margin-bottom:10px">
 			<p:toolbarGroup>
-				<p:button value="Novo" />
+				<p:button value="Novo" outcome="cadastroAtleta" />
 
 				<p:button icon="ui-icon-search" />
 			</p:toolbarGroup>
@@ -38,7 +38,9 @@
 			</p:column>
 
 			<p:column headerText="Data de Nascimento" style="text-align:center">
-				<h:outputText value="#{atleta.pessoa.dataNascimento}" />
+				<h:outputText value="#{atleta.pessoa.dataNascimento}">
+	    <f:convertDateTime pattern="dd-MM-yyyy"/>
+				</h:outputText>
 			</p:column>
 
 			<p:column headerText="Equipa" style="text-align:center">
@@ -55,14 +57,18 @@
 
 			<p:column style="text-align:center; width:100px">
 
-				<p:button icon="ui-icon-pencil" title="Editar"
-					outcome="/cadastroAtleta">
-				</p:button>
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					action="/cadastroAtleta">
+					<f:setPropertyActionListener value="#{atleta}"
+						target="#{cadastroAtletaBean.atleta}" />
+				</p:commandButton>
 
 
-				<p:button icon="ui-icon-print" title="Detalhar"
-					outcome="/detalhesAtleta">
-				</p:button>
+				<p:commandButton icon="ui-icon-print" title="Detalhar"
+					action="/detalhesAtleta">
+					<f:setPropertyActionListener value="#{atleta}"
+						target="#{cadastroAtletaBean.atletaEscolhido}" />
+				</p:commandButton>
 
 				<p:commandButton icon="ui-icon-trash" title="Remover"
 					action="#{cadastroAtletaBean.remover()}">

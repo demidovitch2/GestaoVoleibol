@@ -1,6 +1,8 @@
 package controlador;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -36,8 +38,6 @@ public class CadastroAtletaBean implements Serializable {
 	
 	private Atleta atletaEscolhido = new Atleta();
 
-	private List<Equipa> equipas;
-
 	public Atleta getAtleta() {
 		return this.atleta;
 	}
@@ -55,9 +55,16 @@ public class CadastroAtletaBean implements Serializable {
 	}
 
 	public void salvar() {
+		
 		atletaRepository.salvar(atleta);
 
 		this.atleta = new Atleta();
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Atleta Adicionado com Sucesso", "Registo");
+
+		context.addMessage(null, msg);
 	}
 	
 	public void remover() {
@@ -67,7 +74,7 @@ public class CadastroAtletaBean implements Serializable {
 	public List<Atleta> getAtletas() {
 		return atletaRepository.getAtletas();
 	}
-
+	
 	public List<Equipa> getEquipas() {
 		return equipaRepository.equipas();
 	}

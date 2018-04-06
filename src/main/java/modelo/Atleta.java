@@ -13,8 +13,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+import org.apache.logging.log4j.util.PerformanceSensitive;
 
 import enumeracao.AtletaEscalao;
+import enumeracao.AtletaPosicao;
 
 @Table(name = "tb_atleta")
 @Entity
@@ -27,12 +36,24 @@ public class Atleta implements Serializable {
 	@Column(name = "id_atleta")
 	private Long id;
 
-	private String Posicao;
+	@NotNull(message = "Campo Obrigatório")
+	private AtletaPosicao Posicao;
 
 	@Enumerated(EnumType.STRING)
+	@NotNull(message = "Campo Obrigatório")
 	private AtletaEscalao escalao;
 	private double altura;
 	private double peso;
+	@NotNull(message = "Campo Obrigatório")
+	@Positive(message="Número inválido")
+	private Integer numero;
+	@ManyToOne
+	@JoinColumn(name = "id_equipa")
+	@NotNull(message = "Campo Obrigatório")
+	private Equipa equipa;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_pessoa")
+	private Pessoa pessoa = new Pessoa();
 
 	public Long getId() {
 		return id;
@@ -42,19 +63,11 @@ public class Atleta implements Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne 
-	@JoinColumn(name = "id_equipa")
-	private Equipa equipa;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa = new Pessoa();
-
-	public String getPosicao() {
+	public AtletaPosicao getPosicao() {
 		return Posicao;
 	}
 
-	public void setPosicao(String posicao) {
+	public void setPosicao(AtletaPosicao posicao) {
 		Posicao = posicao;
 	}
 
@@ -80,6 +93,14 @@ public class Atleta implements Serializable {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
 	}
 
 	public Equipa getEquipa() {

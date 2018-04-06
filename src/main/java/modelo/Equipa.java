@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tb_equipa")
@@ -27,10 +30,13 @@ public class Equipa implements Serializable {
 	@Column(name = "id_equipa")
 	private Long id;
 
+	@NotEmpty(message = "Campo Obrigatório")
 	private String nome;
+	@NotEmpty(message = "Campo Obrigatório")
 	private String codigo;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_treinador")
+	@NotNull(message = "Campo Obrigatório")
 	private Treinador treinador;
 	private String medico;
 	private String fisioterapeuta;
@@ -38,18 +44,20 @@ public class Equipa implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_treinadorAdjunto")
 	private Treinador treinadorAdjunto;
+	@NotEmpty(message = "Campo Obrigatório")
 	private String presidente;
+	@NotEmpty(message = "Campo Obrigatório")
 	private String delegado;
 
 	@OneToMany(targetEntity = Atleta.class, mappedBy = "equipa", fetch = FetchType.EAGER)
-	private List<Atleta> atletas;
+	private List<Atleta> atletas = new ArrayList<>();
 
 	// M�todos Getters e Setters
 
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}

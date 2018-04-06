@@ -28,8 +28,6 @@ header>div {
 }
 
 footer {
-	
-	
 	padding: 0px 8px;
 	margin-bottom: 10px;
 	text-align: center;
@@ -131,32 +129,9 @@ no-repeat
 	color: #373737;
 }
 
-/*------------------------------------------------------------------------------------------*/
-
-
-/* TABVIEW */
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a {
-	color: #555;
-}
-
-@media ( max-width : 640px) {
-	.ui-tabs.ui-tabs-top>.ui-tabs-nav li {
-		width: 100%;
-	}
-}
-
-/* PANELGRID */
-.ui-panelgrid.panelgrid-noborder .ui-grid-responsive {
-	border: none;
-}
-
-@media ( max-width : 640px) {
-	.ui-panelgrid.panelgrid-noborder .ui-grid-responsive .ui-grid-row {
-		border: none;
-	}
-}
 /*---------------------------------------------------------------------------------------------*/
 
+/*---------------------------------------------------------------------------------------------*/
 .aw-topbar>img {
 	margin-top: 10px;
 	margin-left: 5px;

@@ -1,6 +1,8 @@
 package controlador;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -51,14 +53,29 @@ public class CadastroTreinadorBean implements Serializable {
 		repoTreinador.salvar(treinador);
 
 		this.treinador = new Treinador();
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Treinador Adicionada com Sucesso", "Registo");
+
+		context.addMessage(null, msg);
 	}
 
 	public void remover() {
-		repoTreinador.remover(treinador);
+		repoTreinador.remover(treinadorEscolhido);
+		FacesContext context = FacesContext.getCurrentInstance();
+
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Treinador Removido com Sucesso", "Registo");
+
+		context.addMessage(null, msg);
 	}
 
 	public List<Treinador> getTreinadores() {
 		return repoTreinador.treinadores();
+	}
+	
+	public boolean isEditando() {
+		return this.treinador.getId()!=null;
 	}
 
 }
