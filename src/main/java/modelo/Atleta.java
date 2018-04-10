@@ -13,14 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
-
-import org.apache.logging.log4j.util.PerformanceSensitive;
 
 import enumeracao.AtletaEscalao;
 import enumeracao.AtletaPosicao;
@@ -37,6 +31,7 @@ public class Atleta implements Serializable {
 	private Long id;
 
 	@NotNull(message = "Campo Obrigatório")
+	@Enumerated(EnumType.STRING)
 	private AtletaPosicao Posicao;
 
 	@Enumerated(EnumType.STRING)
@@ -45,13 +40,13 @@ public class Atleta implements Serializable {
 	private double altura;
 	private double peso;
 	@NotNull(message = "Campo Obrigatório")
-	@Positive(message="Número inválido")
+	@Positive(message = "Número inválido")
 	private Integer numero;
 	@ManyToOne
 	@JoinColumn(name = "id_equipa")
 	@NotNull(message = "Campo Obrigatório")
 	private Equipa equipa;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "id_pessoa")
 	private Pessoa pessoa = new Pessoa();
 

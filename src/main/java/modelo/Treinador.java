@@ -2,7 +2,6 @@ package modelo;
 
 import java.io.Serializable;
 
-import javax.inject.Inject;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Table(name = "tb_treinador")
 @Entity
@@ -25,17 +23,17 @@ public class Treinador implements Serializable {
 	@Column(name = "id_treinador")
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "id_pessoa")
-	private Pessoa pessoa= new Pessoa();
+	private Pessoa pessoa = new Pessoa();
 
-	@NotEmpty(message="Campo Obrigatório")
+	@NotEmpty(message = "Campo Obrigatório")
 	private String nivel;
 
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}

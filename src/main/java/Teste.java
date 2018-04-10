@@ -17,7 +17,7 @@ public class Teste {
 		
 		Utilizador utilizador = new Utilizador();
 		utilizador.setSenha("1234");
-		utilizador.setUtilizador("boris");
+		utilizador.setNome("boris");
 		manager.persist(utilizador);
 		
 		tx.commit();

@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Detalhes do Atleta</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1 style="margin-top: 20px; margin-bottom: 20px">Detalhes do
+			Atleta</h1>
+
+		<p:tabView>
+			<p:tab title="Atleta">
+				<p:panelGrid columns="2" style="margin: 0  ">
+					<f:facet name="header">
+						<p:graphicImage name="images/volleyball.png" />
+					</f:facet>
+
+					<h:outputText value="Name:" />
+					<h:outputText value="#{cadastroUtilizadorBean.utilizadorEscolhido}" />
+
+				</p:panelGrid>
+
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<h:outputText value="Name:" />
+					<h:outputText
+						value="#{cadastroUtilizadorBean.utilizadorEscolhido.nome}" />
+
+					<h:outputText value="Email" />
+					<h:outputText
+						value="#{cadastroUtilizadorBean.utilizadorEscolhido.email}" />
+
+					<h:outputText value="Senha" />
+					<h:outputText
+						value="#{cadastroUtilizadorBean.utilizadorEscolhido.senha}" />
+
+				</h:panelGrid>
+				<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
+					outcome="listagemUtilizadores" />
+	</ui:define>
+</ui:composition>

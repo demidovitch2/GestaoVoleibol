@@ -14,9 +14,9 @@
 			Equipas</h1>
 
 		<p:toolbar style="margin-bottom:10px">
-			<p:toolbarGroup >
-				<p:button value="Nova" />
-				
+			<p:toolbarGroup>
+				<p:button value="Nova" outcome="cadastroEquipa"/>
+
 				<p:button icon="ui-icon-search" />
 			</p:toolbarGroup>
 		</p:toolbar>
@@ -46,13 +46,13 @@
 			<p:column headerText="Treinador Adjunto" style="text-align:center">
 				<h:outputText value="#{equipa.treinadorAdjunto.pessoa.toString()}" />
 			</p:column>
-			
+
 			<p:column headerText="Delegado" style="text-align:center">
 				<h:outputText value="#{equipa.delegado}" />
 			</p:column>
 
 			<p:column style="text-align:center; width:100px">
-			
+
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
 					action="/cadastroEquipa">
 					<f:setPropertyActionListener value="#{equipa}"
@@ -65,12 +65,12 @@
 						target="#{cadastroEquipaBean.equipaEscolhido}" />
 				</p:commandButton>
 
-				<p:commandButton icon="ui-icon-trash" title="Remover" update="equipaAtletas"
-					action="#{cadastroEquipaBean.remover()}"> 
+				<p:commandButton icon="ui-icon-trash" title="Remover"
+					update="equipaAtletas" action="#{cadastroEquipaBean.remover()}">
 					<f:setPropertyActionListener value="#{equipa}"
 						target="#{cadastroEquipaBean.equipaEscolhido}" />
 				</p:commandButton>
-				
+
 			</p:column>
 
 

@@ -34,14 +34,14 @@ public class Equipa implements Serializable {
 	private String nome;
 	@NotEmpty(message = "Campo Obrigatório")
 	private String codigo;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "id_treinador")
 	@NotNull(message = "Campo Obrigatório")
 	private Treinador treinador;
 	private String medico;
 	private String fisioterapeuta;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "id_treinadorAdjunto")
 	private Treinador treinadorAdjunto;
 	@NotEmpty(message = "Campo Obrigatório")

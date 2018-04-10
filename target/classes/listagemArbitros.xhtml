@@ -15,7 +15,7 @@
 
 		<p:toolbar style="margin-bottom:10px">
 			<p:toolbarGroup>
-				<p:button value="Novo" />
+				<p:button value="Novo" outcome="cadastroArbitro"/>
 
 				<p:button icon="ui-icon-search" />
 			</p:toolbarGroup>
@@ -38,7 +38,9 @@
 			</p:column>
 
 			<p:column headerText="Data de Nascimento" style="text-align:center">
-				<h:outputText value="#{arbitro.pessoa.dataNascimento}" />
+				<h:outputText value="#{arbitro.pessoa.dataNascimento}">
+				<f:convertDateTime  pattern="dd-MM-yyyy"/>
+				</h:outputText>
 			</p:column>
 
 			<p:column headerText="Nivel" style="text-align:center">
@@ -60,7 +62,7 @@
 				</p:commandButton>
 
 				<p:commandButton icon="ui-icon-trash" title="Remover"
-					action="#{cadastroArbitroBean.remover()}">
+					action="#{cadastroArbitroBean.remover()}" update="tabelaArbitros">
 					<f:setPropertyActionListener value="#{arbitro}"
 						target="#{cadastroArbitroBean.arbitroEscolhido}" />
 				</p:commandButton>

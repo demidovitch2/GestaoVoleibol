@@ -1,0 +1,64 @@
+<!DOCTYPE html >
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Pessoas</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1 style="margin-top: 20px; margin-bottom: 20px">Lista de
+			Pessoas</h1>
+
+		<p:dataTable value="#{pessoaBean.pessoas}" var="pessoa"
+			id="tabelaPessoas" rows="10" paginator="true"
+			paginatorPosition="bottom" rowsPerPageTemplate="10,20,30"
+			paginatorAlwaysVisible="false">
+			<p:column headerText="ID" style="text-align:center;width:40px">
+				<h:outputText value="#{pessoa.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" style="text-align:center">
+				<h:outputText value="#{pessoa.nome}" />
+			</p:column>
+
+			<p:column headerText="Apelido" style="text-align:center">
+				<h:outputText value="#{pessoa.apelido}" />
+			</p:column>
+
+			<p:column headerText="Gênero" style="text-align:center">
+				<h:outputText value="#{pessoa.genero}" />
+			</p:column>
+
+			<p:column headerText="Data de Nascimento" style="text-align:center">
+				<h:outputText value="#{pessoa.dataNascimento}">
+					<f:convertDateTime pattern="dd-MM-yyyy" />
+				</h:outputText>
+			</p:column>
+
+
+			<p:column headerText="Estado Civil" style="text-align:center">
+				<h:outputText value="#{pessoa.estadoCivil}" />
+			</p:column>
+
+			<p:column style="text-align:center; width:80px">
+
+				<p:commandButton icon="ui-icon-print" title="Detalhar"
+					action="/detalhesPessoa">
+					<f:setPropertyActionListener value="#{atleta}"
+						target="#{pessoaBean.pessoaEscolhida}" />
+				</p:commandButton>
+
+				<p:commandButton icon="ui-icon-trash" title="Remover"
+					action="#{pessoaBean.remover()}" update="tabelaPessoas">
+					<f:setPropertyActionListener value="#{atleta}"
+						target="#{pessoaBean.pessoaEscolhida}" />
+				</p:commandButton>
+
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>

@@ -58,7 +58,7 @@
 			<p:column style="text-align:center; width:100px">
 
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
-					action="/cadastroAtleta">
+					action="/cadastroAtleta" update="tabelaAtletas">
 					<f:setPropertyActionListener value="#{atleta}"
 						target="#{cadastroAtletaBean.atleta}" />
 				</p:commandButton>
@@ -71,7 +71,7 @@
 				</p:commandButton>
 
 				<p:commandButton icon="ui-icon-trash" title="Remover"
-					action="#{cadastroAtletaBean.remover()}">
+					action="#{cadastroAtletaBean.remover()}" update="tabelaAtletas">
 					<f:setPropertyActionListener value="#{atleta}"
 						target="#{cadastroAtletaBean.atletaEscolhido}" />
 				</p:commandButton>

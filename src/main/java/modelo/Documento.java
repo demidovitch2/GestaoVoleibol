@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -27,6 +29,7 @@ public class Documento implements Serializable {
 	@NotEmpty(message="Campo Obrigatório")
 	private String numero;
 	@NotNull(message="Campo Obrigatório")
+	@Enumerated(EnumType.STRING)
 	private DocumentoTipo tipo;
 	@NotEmpty(message="Campo Obrigatório")
 	private String estadoDocumento;

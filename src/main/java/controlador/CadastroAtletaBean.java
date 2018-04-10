@@ -14,6 +14,7 @@ import modelo.Atleta;
 import modelo.Equipa;
 import repositorio.AtletaRepository;
 import repositorio.EquipaRepository;
+import util.FacesUtil;
 
 import java.io.Serializable;
 import java.util.List;
@@ -33,8 +34,7 @@ public class CadastroAtletaBean implements Serializable {
 	@Inject
 	private EquipaRepository equipaRepository;
 
-	@Inject
-	private Atleta atleta;
+	private Atleta atleta = new Atleta();
 	
 	private Atleta atletaEscolhido = new Atleta();
 
@@ -60,15 +60,12 @@ public class CadastroAtletaBean implements Serializable {
 
 		this.atleta = new Atleta();
 		
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Atleta Adicionado com Sucesso", "Registo");
-
-		context.addMessage(null, msg);
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Atleta Adicionado com Sucesso");
 	}
 	
 	public void remover() {
 		atletaRepository.remover(atletaEscolhido);
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Atleta Removido com Sucesso");
 	}
 
 	public List<Atleta> getAtletas() {

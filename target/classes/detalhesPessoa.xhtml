@@ -1,0 +1,106 @@
+<!DOCTYPE html >
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui">
+
+	<ui:define name="titulo">Detalhes do Atleta</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1 style="margin-top: 20px; margin-bottom: 20px">Detalhes do
+			Atleta</h1>
+
+		<p:tabView>
+			<p:tab title="Atleta">
+				<p:panelGrid columns="2" style="margin: 0  ">
+					<f:facet name="header">
+						<p:graphicImage name="images/volleyball.png" />
+					</f:facet>
+
+					<h:outputText value="Name:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.toString()}" />
+
+				</p:panelGrid>
+			</p:tab>
+			<p:tab title="Dados Pessoais">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<h:outputText value="Name:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.toString()}" />
+
+					<h:outputText value="Sexo:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.genero}" />
+
+					<h:outputText value="Data de Nascimento:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.dataNascimento}">
+						<f:convertDateTime pattern="dd-MM-yyyy" />
+					</h:outputText>
+
+					<h:outputText value="Nacionalidade:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.nacionalidade}" />
+
+					<h:outputText value="Naturalidade:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.naturalidade}" />
+
+					<h:outputText value="Estado Civil:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.estadoCivil}" />
+
+					<h:outputText value="Nome da Mãe:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.nomeMae}" />
+
+					<h:outputText value="Nome do Pai:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.nomePai}" />
+
+					<h:outputText value="Telefone:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.telefone}" />
+
+					<h:outputText value="Celular:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.celular}" />
+
+					<h:outputText value="E-mail:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.email}" />
+
+					<h:outputText value="Endereço:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.endereco}" />
+
+					<h:outputText value="Nuit:" />
+					<h:outputText value="#{pessoaBean.pessoaEscolhida.nuit}" />
+
+					<h:outputText value="Documento:" />
+					<h:outputText
+						value="#{pessoaBean.pessoaEscolhida.documento.tipo.descricao}" />
+
+					<h:outputText style="text-type:bold" value="Número do Doc.:" />
+					<h:outputText
+						value="#{pessoaBean.pessoaEscolhida.documento.numero}" />
+
+					<h:outputText value="Estado do Documento:" />
+					<h:outputText
+						value="#{pessoaBean.pessoaEscolhida.documento.estadoDocumento}" />
+
+					<h:outputText value="Data de Emissão:" />
+					<h:outputText
+						value="#{pessoaBean.pessoaEscolhida.documento.dataEmissao}">
+						<f:convertDateTime pattern="dd-MM-yyyy" />
+					</h:outputText>
+
+					<h:outputText value="Data de Validade:" />
+					<h:outputText
+						value="#{pessoaBean.pessoaEscolhida.documento.dataValidade}">
+						<f:convertDateTime pattern="dd-MM-yyyy" />
+					</h:outputText>
+
+					<h:outputText value="Local de Emissão:" />
+					<h:outputText
+						value="#{pessoaBean.pessoaEscolhida.documento.localEmissao}" />
+
+				</h:panelGrid>
+			</p:tab>
+		</p:tabView>
+		<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
+			outcome="pessoas" />
+	</ui:define>
+</ui:composition>

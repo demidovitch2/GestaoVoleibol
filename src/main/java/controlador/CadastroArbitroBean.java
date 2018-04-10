@@ -1,21 +1,20 @@
 package controlador;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.omnifaces.cdi.ViewScoped;
 
 import enumeracao.DocumentoTipo;
 import modelo.Arbitro;
 import repositorio.ArbitroRepository;
+import util.FacesUtil;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class CadastroArbitroBean implements Serializable {
 
 	/**
@@ -26,8 +25,7 @@ public class CadastroArbitroBean implements Serializable {
 	@Inject
 	private ArbitroRepository arbitroRepo;
 
-	@Inject
-	private Arbitro arbitro;
+	private Arbitro arbitro = new Arbitro();
 
 	private Arbitro arbitroEscolhido = new Arbitro();
 
@@ -57,27 +55,16 @@ public class CadastroArbitroBean implements Serializable {
 
 	public void salvar() {
 		arbitroRepo.salvar(arbitro);
-
 		this.arbitro = new Arbitro();
-		
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Árbitro Adicionado com Sucesso", "Registo");
-
-		context.addMessage(null, msg);
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Árbitro Adicionado com Sucesso");
 	}
 
 	public void remover() {
 		arbitroRepo.remove(arbitroEscolhido);
-		
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Árbitro Removido com Sucesso", "Registo");
-
-		context.addMessage(null, msg);
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Árbitro Removido com Sucesso");
 	}
-	
+
 	public boolean isEditando() {
-		return this.arbitro.getId()!=null;
+		return this.arbitro.getId() != null;
 	}
 }

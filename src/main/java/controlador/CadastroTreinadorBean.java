@@ -2,6 +2,7 @@ package controlador;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -9,6 +10,8 @@ import javax.inject.Named;
 import enumeracao.DocumentoTipo;
 import modelo.Treinador;
 import repositorio.TreinadorRepository;
+import util.FacesUtil;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -25,9 +28,9 @@ public class CadastroTreinadorBean implements Serializable {
 	private TreinadorRepository repoTreinador;
 
 	@Inject
-	private Treinador treinador;
-	
-	private Treinador treinadorEscolhido;
+	private Treinador treinador = new Treinador();
+
+	private Treinador treinadorEscolhido = new Treinador();
 
 	public Treinador getTreinador() {
 		return this.treinador;
@@ -40,7 +43,7 @@ public class CadastroTreinadorBean implements Serializable {
 	public DocumentoTipo[] getDocumentosTipo() {
 		return DocumentoTipo.values();
 	}
-	
+
 	public Treinador getTreinadorEscolhido() {
 		return treinadorEscolhido;
 	}
@@ -53,29 +56,20 @@ public class CadastroTreinadorBean implements Serializable {
 		repoTreinador.salvar(treinador);
 
 		this.treinador = new Treinador();
-		
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Treinador Adicionada com Sucesso", "Registo");
-
-		context.addMessage(null, msg);
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Treinador Adicionado com Sucesso");
 	}
 
 	public void remover() {
 		repoTreinador.remover(treinadorEscolhido);
-		FacesContext context = FacesContext.getCurrentInstance();
-
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Treinador Removido com Sucesso", "Registo");
-
-		context.addMessage(null, msg);
+		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Treinador Removido com Sucesso");
 	}
 
 	public List<Treinador> getTreinadores() {
 		return repoTreinador.treinadores();
 	}
-	
+
 	public boolean isEditando() {
-		return this.treinador.getId()!=null;
+		return this.treinador.getId() != null;
 	}
 
 }

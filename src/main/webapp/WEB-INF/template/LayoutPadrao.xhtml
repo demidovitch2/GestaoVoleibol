@@ -51,7 +51,7 @@
 
 						<p:menuitem value="Treinador" outcome="cadastroTreinador" />
 						<p:separator />
-						<p:menuitem value="Utilizador" />
+						<p:menuitem value="Utilizador" outcome="cadastroUtilizador" />
 					</p:submenu>
 
 					<p:submenu label="Transferências">
@@ -64,9 +64,11 @@
 						<p:menuitem value="Atletas" outcome="listagemAtletas" />
 						<p:menuitem value="Árbitros" outcome="listagemArbitros" />
 						<p:menuitem value="Equipas" outcome="listagemEquipas" />
-						<p:menuitem value="Treinadores"  outcome="listagemTreinador" />
+						<p:menuitem value="Treinadores" outcome="listagemTreinador" />
+						<p:separator />
+						<p:menuitem value="Utilizadores" outcome="listagemUtilizadores" />
 					</p:submenu>
-					<p:menuitem value="Sair" />
+					<p:menuitem value="Sair" url="j_spring_security_logout" />
 				</p:menubar>
 			</h:form>
 		</div>

@@ -9,13 +9,12 @@
 	<ui:define name="titulo">#{cadastroArbitroBean.editando ? "Edição do Árbitro" : "Novo Árbitro"}</ui:define>
 
 	<ui:define name="corpo">
+		<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroArbitroBean.editando
+			? "Edição do Árbitro" : "Novo Árbitro"}</h1>
+
 		<p:messages closable="true" />
 
 		<h:form id="frm">
-			<p:messages autoUpdate="true" closable="true" />
-			<h1 style="margin-top: 20px; margin-bottom: 20px">#{cadastroArbitroBean.editando
-				? "Edição do Árbitro" : "Novo Árbitro"}</h1>
-
 			<div class="ui-fluid" style="margin-top: 20px">
 				<p:panelGrid columns="4" layout="grid" style="margin-top: 20px;"
 					styleClass="ui-noborder"
@@ -146,15 +145,13 @@
 			</div>
 			<p:toolbar>
 				<p:toolbarGroup>
-
 					<p:commandButton
-						value="#{cadastroArbitroBean.editando ? '
-							Actualizar' : 'Salvar'}"
-						id="commandButton-salvar" update="frm"
-						action="#{cadastroArbitroBean.salvar()}" icon="ui-icon-disk" />
+						value="#{cadastroArbitroBean.editando ? 'Actualização' : 'Salvar'}"
+						id="commandButton-salvar" icon="ui-icon-disk" update="frm"
+						action="#{cadastroArbitroBean.salvar()}" />
 
 					<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
-						outcome="listagemAtletas"
+						outcome="listagemArbitros"
 						rendered="#{cadastroArbitroBean.editando}" />
 
 					<p:button value="Listar" icon="ui-icon-document"

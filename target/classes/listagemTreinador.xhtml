@@ -38,7 +38,9 @@
 			</p:column>
 
 			<p:column headerText="Data de Nascimento" style="text-align:center">
-				<h:outputText value="#{treinador.pessoa.dataNascimento}" />
+				<h:outputText value="#{treinador.pessoa.dataNascimento}">
+				<f:convertDateTime pattern="dd-MM-yyyy" />
+				</h:outputText>
 			</p:column>
 
 			<p:column headerText="Nivel" style="text-align:center">
@@ -48,7 +50,7 @@
 			<p:column style="text-align:center; width:100px">
 
 				<p:commandButton icon="ui-icon-pencil" title="Editar"
-					action="/cadastroTreinador">
+					action="/cadastroTreinador" update="tabelaTreinador">
 					<f:setPropertyActionListener value="#{treinador}"
 						target="#{cadastroTreinadorBean.treinador}" />
 				</p:commandButton>
