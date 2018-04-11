@@ -9,7 +9,9 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import modelo.Grupo;
 import modelo.Utilizador;
+import repositorio.GrupoRepository;
 import repositorio.UtilizadorRepository;
 import util.FacesUtil;
 
@@ -24,6 +26,9 @@ public class CadastroUtilizadorBean implements Serializable {
 
 	@Inject
 	private UtilizadorRepository repository;
+
+	@Inject
+	private GrupoRepository grupoRepository;
 
 	private Utilizador utilizador = new Utilizador();
 	private Utilizador utilizadorEscolhido = new Utilizador();
@@ -55,13 +60,21 @@ public class CadastroUtilizadorBean implements Serializable {
 
 	public void salvar() {
 		repository.salvar(utilizador);
-
+		this.utilizador = new Utilizador();
 		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Utilizador Adicionado com Sucesso");
 	}
 
 	public void remover() {
 		repository.remover(utilizadorEscolhido);
 		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Utilizador Removido com Sucesso");
+	}
+
+	public boolean isEditando() {
+		return this.utilizador.getId() != null;
+	}
+
+	public List<Grupo> getGrupos() {
+		return grupoRepository.getGrupos();
 	}
 
 }

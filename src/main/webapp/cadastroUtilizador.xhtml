@@ -21,15 +21,22 @@
 					columnClasses="ui-grid-col-2, ui-grid-col-4">
 					<p:outputLabel value="Nome" for="inputText-nome" />
 					<p:inputText id="inputText-nome"
-						value="#{cadastroUtilizadorBean.utilizador.nome}" maxlength="70" />
+						value="#{cadastroUtilizadorBean.utilizador.nome}" />
 					<p:outputLabel value="E-mail" for="inputText-email" />
 					<p:inputText id="inputText-email"
-						value="#{cadastroUtilizadorBean.utilizador.email}" maxlength="10" />
+						value="#{cadastroUtilizadorBean.utilizador.email}" />
 					<p:outputLabel value="Senha" for="inputText-senha" />
 					<p:inputText id="inputText-senha"
-						value="#{cadastroUtilizadorBean.utilizador.senha}" maxlength="70" />
+						value="#{cadastroUtilizadorBean.utilizador.senha}" />
 
-					<p:outputLabel value="grupo de Utilizadores" for="grupo" />
+					<p:outputLabel value="Grupo de Utilizadores" />
+					<p:selectManyCheckbox id="grid2"
+						value="#{cadastroUtilizadorBean.utilizador.grupos}"
+						layout="responsive" columns="3">
+						<f:selectItems value="#{cadastroUtilizadorBean.grupos}"
+							var="grupo" itemLabel="#{grupo.descricao}"
+							itemValue="#{grupo.nome}" />
+					</p:selectManyCheckbox>
 
 				</p:panelGrid>
 			</div>

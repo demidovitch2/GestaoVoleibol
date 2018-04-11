@@ -1,0 +1,60 @@
+<!DOCTYPE html >
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">grupo</ui:define>
+
+	<ui:define name="corpo">
+
+		<h1 style="margin-top: 20px; margin-bottom: 20px">Lista de Grupos</h1>
+
+		<p:toolbar style="margin-bottom:10px">
+			<p:toolbarGroup>
+				<p:button value="Novo" outcome="cadastroGrupo" />
+
+				<p:button icon="ui-icon-search" />
+			</p:toolbarGroup>
+		</p:toolbar>
+
+		<p:dataTable value="#{cadastroGrupoBean.grupos}" var="grupo"
+			id="tabelaGrupo">
+			<p:column headerText="ID" style="text-align:center;width:40px">
+				<h:outputText value="#{grupo.id}" />
+			</p:column>
+
+			<p:column headerText="Nome" style="text-align:center">
+				<h:outputText value="#{grupo.nome}" />
+			</p:column>
+
+			<p:column headerText="Descrição" style="text-align:center">
+				<h:outputText value="#{grupo.descricao}" />
+			</p:column>
+
+			<p:column>
+				<p:commandButton icon="ui-icon-pencil" title="Editar"
+					action="/cadastroGrupo">
+					<f:setPropertyActionListener value="#{grupo}"
+						target="#{cadastroGrupoBean.grupo}" />
+				</p:commandButton>
+
+				<p:commandButton icon="ui-icon-print" title="Detalhar"
+					action="/detalhesGrupo">
+					<f:setPropertyActionListener value="#{grupo}"
+						target="#{cadastroGrupoBean.grupoEscolhido}" />
+				</p:commandButton>
+
+				<p:commandButton icon="ui-icon-trash" title="Remover"
+					update="tabelaGrupo" action="#{cadastroGrupoBean.remover()}">
+					<f:setPropertyActionListener value="#{utilizador}"
+						target="#{cadastroGrupoBean.grupoEscolhido}" />
+				</p:commandButton>
+
+			</p:column>
+
+		</p:dataTable>
+	</ui:define>
+</ui:composition>

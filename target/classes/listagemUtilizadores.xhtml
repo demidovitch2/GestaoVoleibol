@@ -31,11 +31,11 @@
 				<h:outputText value="#{utilizador.nome}" />
 			</p:column>
 
-			<p:column headerText="Sigla" style="text-align:center">
+			<p:column headerText="E-mail" style="text-align:center">
 				<h:outputText value="#{utilizador.email}" />
 			</p:column>
 
-			<p:column headerText="Presidente" style="text-align:center">
+			<p:column headerText="Senha" style="text-align:center">
 				<h:outputText value="#{utilizador.senha}" />
 			</p:column>
 
@@ -50,7 +50,7 @@
 				<p:commandButton icon="ui-icon-print" title="Detalhar"
 					action="/detalhesutilizador">
 					<f:setPropertyActionListener value="#{utilizador}"
-						target="#{cadastroutilizadorBean.utilizadorEscolhido}" />
+						target="#{cadastroUtilizadorBean.utilizadorEscolhido}" />
 				</p:commandButton>
 
 				<p:commandButton icon="ui-icon-trash" title="Remover"
