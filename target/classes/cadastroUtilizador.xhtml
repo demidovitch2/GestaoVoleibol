@@ -30,13 +30,12 @@
 						value="#{cadastroUtilizadorBean.utilizador.senha}" />
 
 					<p:outputLabel value="Grupo de Utilizadores" />
-					<p:selectManyCheckbox id="grid2"
-						value="#{cadastroUtilizadorBean.utilizador.grupos}"
-						layout="responsive" columns="3">
+					<p:selectManyCheckbox  id="grid2"
+						value="#{cadastroUtilizadorBean.utilizador.gruposSeleccionados}"
+						layout="responsive" columns="4">
 						<f:selectItems value="#{cadastroUtilizadorBean.grupos}"
-							var="grupo" itemLabel="#{grupo.descricao}"
-							itemValue="#{grupo.nome}" />
-					</p:selectManyCheckbox>
+							var="grupo" itemLabel="#{grupo}" itemValue="#{grupo}" />
+					</p:selectManyCheckbox >
 
 				</p:panelGrid>
 			</div>
@@ -45,7 +44,7 @@
 					<p:commandButton
 						value="#{cadastroUtilizadorBean.editando ? 'Actualizar' : 'Salvar'}"
 						id="commandButton-salvar" update="frm"
-						action="#{cadastroUtilizadorBean.salvar()}" icon="ui-icon-disk" />
+						action="#{cadastroUtilizadorBean.salvar()}" process="@form" icon="ui-icon-disk" />
 
 					<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
 						outcome="listagemUtilizadores"

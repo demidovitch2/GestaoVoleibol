@@ -13,22 +13,17 @@
 		<h1 style="margin-top: 20px; margin-bottom: 20px">Detalhes do
 			Grupo</h1>
 
-		<p:tabView>
-			<p:tab title="Grupo">
-				
-				<h:panelGrid columns="2" cellpadding="10">
+		<h:panelGrid columns="2" cellpadding="10">
 
-					<h:outputText value="Name:" />
-					<h:outputText
-						value="#{cadastroGrupoBean.grupoEscolhido.nome}" />
+			<h:outputText value="Name:" />
+			<h:outputText value="#{cadastroGrupoBean.grupoEscolhido.nome}" />
 
-					<h:outputText value="Descrição" />
-					<h:outputText
-						value="#{cadastroGrupoBean.grupoEscolhido.descricao}" />
+			<h:outputText value="Descrição" />
+			<h:outputText value="#{cadastroGrupoBean.grupoEscolhido.descricao}" />
 
 
-				</h:panelGrid>
-				<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
-					outcome="listagemGrupos" />
+		</h:panelGrid>
+		<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
+			outcome="listagemGrupos" />
 	</ui:define>
 </ui:composition>

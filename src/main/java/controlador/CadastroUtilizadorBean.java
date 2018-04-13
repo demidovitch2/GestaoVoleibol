@@ -2,7 +2,9 @@ package controlador;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -32,7 +34,9 @@ public class CadastroUtilizadorBean implements Serializable {
 
 	private Utilizador utilizador = new Utilizador();
 	private Utilizador utilizadorEscolhido = new Utilizador();
+	@SuppressWarnings("unused")
 	private List<Utilizador> utilizadores = new ArrayList<>();
+	private Set<Grupo> gruposSeleccionados = new HashSet<>();
 
 	public Utilizador getUtilizador() {
 		return utilizador;
@@ -58,8 +62,22 @@ public class CadastroUtilizadorBean implements Serializable {
 		this.utilizadores = utilizadores;
 	}
 
+	public Set<Grupo> getGruposSeleccionados() {
+		return gruposSeleccionados;
+	}
+
+	public void setGruposSeleccionados(Set<Grupo> gruposSeleccionados) {
+		this.gruposSeleccionados = gruposSeleccionados;
+	}
+
 	public void salvar() {
+		utilizador.setGrupos(gruposSeleccionados);
 		repository.salvar(utilizador);
+		for (Grupo grupo : gruposSeleccionados) {
+			grupo.getUtilizadores().add(utilizador);
+			grupoRepository.salvar(grupo);
+		}
+
 		this.utilizador = new Utilizador();
 		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Utilizador Adicionado com Sucesso");
 	}

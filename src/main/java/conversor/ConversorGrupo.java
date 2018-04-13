@@ -6,7 +6,6 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
-import modelo.Equipa;
 import modelo.Grupo;
 import repositorio.GrupoRepository;
 
@@ -14,8 +13,7 @@ import repositorio.GrupoRepository;
 public class ConversorGrupo implements Converter {
 
 	@Inject
-	private GrupoRepository  grupoRepository;
-	
+	private GrupoRepository grupoRepository;
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
@@ -31,7 +29,7 @@ public class ConversorGrupo implements Converter {
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if (value != null) {
-			return ((Equipa) value).getId().toString();
+			return ((Grupo) value).getId().toString();
 		}
 
 		return "";

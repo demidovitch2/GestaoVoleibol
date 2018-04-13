@@ -20,7 +20,7 @@ public class Treinador implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_treinador")
+	@Column(name = "treinador_id")
 	private Long id;
 
 	@OneToOne(cascade=CascadeType.MERGE)

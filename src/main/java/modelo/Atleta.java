@@ -27,7 +27,7 @@ public class Atleta implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_atleta")
+	@Column(name = "atleta_id")
 	private Long id;
 
 	@NotNull(message = "Campo Obrigatório")

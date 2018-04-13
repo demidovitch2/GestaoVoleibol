@@ -23,7 +23,7 @@ public class Documento implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_documento")
+	@Column(name = "documento_id")
 	private Long id;
 
 	@NotEmpty(message="Campo Obrigatório")

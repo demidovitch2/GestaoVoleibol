@@ -25,7 +25,7 @@ public class Pessoa implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_pessoa")
+	@Column(name = "pessoa_id")
 	private Long id;
 	@NotEmpty(message="Campo Obrigatório")
 	private String nome;

@@ -1,13 +1,17 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -20,7 +24,7 @@ public class Utilizador implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_usuario")
+	@Column(name = "utilizador_id")
 	private Long id;
 
 	@Column(name = "email")
@@ -33,8 +37,9 @@ public class Utilizador implements Serializable {
 	@Column(name = "ds_senha")
 	private String senha;
 
-	@ManyToMany
-	private List<Grupo> grupos = new ArrayList<>();
+	@ManyToMany(targetEntity = Grupo.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@JoinTable(name = "utilizador_grupo", joinColumns = @JoinColumn(name = "utilizador_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
+	private Set<Grupo> grupos = new HashSet<>();
 
 	public Long getId() {
 		return id;
@@ -68,11 +73,11 @@ public class Utilizador implements Serializable {
 		this.senha = senha;
 	}
 
-	public List<Grupo> getGrupos() {
+	public Set<Grupo> getGrupos() {
 		return grupos;
 	}
 
-	public void setGrupos(List<Grupo> grupos) {
+	public void setGrupos(Set<Grupo> grupos) {
 		this.grupos = grupos;
 	}
 

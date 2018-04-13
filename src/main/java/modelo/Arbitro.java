@@ -20,7 +20,7 @@ public class Arbitro implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "id_arbitro")
+	@Column(name = "arbitro_id")
 	private Long id;
 
 	@NotEmpty(message = "Campo Obrigatório")
