@@ -14,7 +14,7 @@ public class UtilizadorSistema extends User {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Utilizador utilizador;
+	private Utilizador utilizador= new Utilizador();
 
 	public UtilizadorSistema(Utilizador utilizador, Collection<? extends GrantedAuthority> authorities) {
 		super(utilizador.getEmail(), utilizador.getSenha(), authorities);
@@ -22,7 +22,7 @@ public class UtilizadorSistema extends User {
 	}
 
 	public Utilizador getUtilizador() {
-		return utilizador;
+		return this.utilizador;
 	}
 
 }

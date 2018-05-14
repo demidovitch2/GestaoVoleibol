@@ -32,7 +32,7 @@
 		<div>
 			<span
 				style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
-				<h1 onclick="index">AVCM</h1>
+				<h1>AVCM</h1>
 			</span>
 		</div>
 
@@ -68,7 +68,8 @@
 						<p:menuitem value="Treinadores" outcome="listagemTreinador" />
 						<p:separator />
 						<p:menuitem value="Utilizadores" outcome="listagemUtilizadores" />
-						<p:menuitem value="Grupos de Utilizadores" outcome="listagemGrupos" />
+						<p:menuitem value="Grupos de Utilizadores"
+							outcome="listagemGrupos" />
 					</p:submenu>
 					<p:menuitem value="Sair" url="j_spring_security_logout" />
 				</p:menubar>
@@ -89,11 +90,8 @@
 		<ui:insert name="corpo" />
 	</section>
 
-	<p:separator style="margin-top:20px" />
-
-	<footer> A bem do desporto e do volei em particular, KEEP THE
-		BALL FLY </footer>
-
 </h:body>
-
+<p:separator style="margin-top:20px" />
+<footer> A bem do desporto e do volei em particular, KEEP THE
+	BALL FLY </footer>
 </html>

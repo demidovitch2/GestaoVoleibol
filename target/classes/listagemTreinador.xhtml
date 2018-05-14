@@ -15,8 +15,8 @@
 		<p:message rendered="false" />
 		<p:toolbar style="margin-bottom:10px">
 			<p:toolbarGroup>
-				<p:button value="Novo" outcome="cadastroTreinador" />
-
+				<p:button value="Novo" icon="ui-icon-plus" outcome="cadastroTreinador" />
+				<p:button value="Voltar"  icon="ui-icon-arrowthick-1-w" outcome="listagem" />
 				<p:button icon="ui-icon-search" />
 			</p:toolbarGroup>
 		</p:toolbar>
@@ -39,7 +39,7 @@
 
 			<p:column headerText="Data de Nascimento" style="text-align:center">
 				<h:outputText value="#{treinador.pessoa.dataNascimento}">
-				<f:convertDateTime pattern="dd-MM-yyyy" />
+					<f:convertDateTime pattern="dd-MM-yyyy" />
 				</h:outputText>
 			</p:column>
 
@@ -61,7 +61,8 @@
 						target="#{cadastroTreinadorBean.treinadorEscolhido}" />
 				</p:commandButton>
 
-				<p:commandButton icon="ui-icon-trash" title="Remover" update="tabelaTreinador"
+				<p:commandButton icon="ui-icon-trash" title="Remover"
+					update="tabelaTreinador"
 					action="#{cadastroTreinadorBean.remover()}">
 					<f:setPropertyActionListener value="#{treinador}"
 						target="#{cadastroTreinadorBean.treinadorEscolhido}" />

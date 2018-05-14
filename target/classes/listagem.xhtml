@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+
+		<!-- wrapper -->
+		<div class="wrapper">
+
+			<div class="clear"></div>
+			<!-- items -->
+			<div class="items ui-fluid">
+			
+				<!-- single item -->
+				<div onclick="location.href='listagemAtletas.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="jogador.png" />
+					<h2>ATLETAS</h2>
+				</div>
+				<!--/ single item -->
+				<!-- single item -->
+				<div onclick="location.href='listagemEquipas.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="team.png" />
+					<h2>EQUIPAS</h2>
+				</div>
+				<!--/ single item -->
+				<!-- single item -->
+				<div onclick="location.href='listagemTreinador.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="coach.png" />
+					<h2>TREINADORES</h2>
+				</div>
+				<!--/ single item -->
+			</div>
+			<!--/ items -->
+		</div>
+		<!--/ wrapper -->
+		
+	   <!-- Segunda Linha -->
+	   <!-- wrapper -->
+		<div class="wrapper">
+
+			<div class="clear"></div>
+			<!-- items -->
+			<div class="items ui-fluid">
+				<!-- single item -->
+				<div onclick="location.href='listagemArbitros.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="arbitro.png" />
+					<h2>ÁRBITROS</h2>
+				</div>
+				<!--/ single item -->
+				<!-- single item -->
+				<div onclick="location.href='listagemUtilizadores.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="utilizadores.png" />
+					<h2>UTILIZADORES</h2>
+				</div>
+				<!--/ single item -->
+			</div>
+			<!--/ items -->
+		</div>
+		<!--/ wrapper -->
+	</ui:define>
+</ui:composition>

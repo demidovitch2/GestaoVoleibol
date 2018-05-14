@@ -28,15 +28,19 @@
 					<p:outputLabel value="Senha" for="inputText-senha" />
 					<p:inputText id="inputText-senha"
 						value="#{cadastroUtilizadorBean.utilizador.senha}" />
+				</p:panelGrid>
+				<p:separator />
+				<p:panelGrid columns="2" layout="grid" style="margin-top: 20px"
+					id="grupo" styleClass="ui-noborder"
+					columnClasses="ui-grid-col-2, ui-grid-col-4">
 
 					<p:outputLabel value="Grupo de Utilizadores" />
-					<p:selectManyCheckbox  id="grid2"
-						value="#{cadastroUtilizadorBean.utilizador.gruposSeleccionados}"
+					<p:selectManyCheckbox id="grid2"
+						value="#{cadastroUtilizadorBean.gruposSeleccionados}"
 						layout="responsive" columns="4">
 						<f:selectItems value="#{cadastroUtilizadorBean.grupos}"
 							var="grupo" itemLabel="#{grupo}" itemValue="#{grupo}" />
-					</p:selectManyCheckbox >
-
+					</p:selectManyCheckbox>
 				</p:panelGrid>
 			</div>
 			<p:toolbar>
@@ -44,7 +48,8 @@
 					<p:commandButton
 						value="#{cadastroUtilizadorBean.editando ? 'Actualizar' : 'Salvar'}"
 						id="commandButton-salvar" update="frm"
-						action="#{cadastroUtilizadorBean.salvar()}" process="@form" icon="ui-icon-disk" />
+						action="#{cadastroUtilizadorBean.salvar()}" process="@form"
+						icon="ui-icon-disk" />
 
 					<p:button icon="ui-icon-arrowthick-1-w" value="Voltar"
 						outcome="listagemUtilizadores"

@@ -37,7 +37,8 @@ public class Utilizador implements Serializable {
 	@Column(name = "ds_senha")
 	private String senha;
 
-	@ManyToMany(targetEntity = Grupo.class, fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@ManyToMany(targetEntity = Grupo.class, fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST,
+			CascadeType.MERGE })
 	@JoinTable(name = "utilizador_grupo", joinColumns = @JoinColumn(name = "utilizador_id"), inverseJoinColumns = @JoinColumn(name = "grupo_id"))
 	private Set<Grupo> grupos = new HashSet<>();
 

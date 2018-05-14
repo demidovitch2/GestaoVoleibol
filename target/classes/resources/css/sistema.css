@@ -71,6 +71,10 @@ no-repeat
 
 
 
+
+
+
+
 ;
 }
 /*Menu sitema fim */
@@ -180,3 +184,80 @@ no-repeat
 		margin-left: 0;
 	}
 }
+
+/*------------------------------------------------------------------------------------------------*/
+.wrapper {
+	width: 705px;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+.clear {
+	clear: both;
+}
+
+.items {
+	display: block;
+	margin: 20px 0;
+}
+
+.item {
+	float: left;
+	margin: 0px 10px 10px 0px;
+	width: 205px;
+	padding: 15px;
+	height: 290px;
+	box-shadow: 5px;
+	border-radius: 10px;
+	color: #fff;
+	padding: 10px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-webkit-box-shadow: 1px 1px 1px 1px #8a8a8a;
+	-moz-box-shadow: 3px -3px 3px #000;
+}
+
+
+.item:hover {
+	 background-color: #f7f7f7;
+	 transition: transform .2s; /* Animation */
+}
+
+.item img {
+	display: block;
+	margin: auto;
+}
+
+.shopping-cart {
+	display: inline-block;
+	background:
+		url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png')
+		no-repeat 0 0;
+	width: 24px;
+	height: 24px;
+	margin: 0 10px 0 0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	background-color: #333;
+	color: #fff;
+	font-size: 20px;
+	float: inherit,left;
+}
+
+h2 {
+	color:#000;
+	font-size: 16px;
+	border-bottom: 1px solid #ccc;
+	margin: 0 0 10px 0;
+	padding: 0 0 5px 0;
+}
+
+span {
+	float: right;
+	}

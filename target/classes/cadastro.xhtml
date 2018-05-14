@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="corpo">
+
+		<!-- wrapper -->
+		<div class="wrapper">
+
+			<div class="clear"></div>
+			<!-- items -->
+			<div class="items ui-fluid">
+			
+				<!-- single item -->
+				<div onclick="location.href='cadastroAtleta.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="jogador.png" />
+					<h2>ATLETA</h2>
+				</div>
+				<!--/ single item -->
+				<!-- single item -->
+				<div onclick="location.href='cadastroEquipa.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="team.png" />
+					<h2>EQUIPA</h2>
+				</div>
+				<!--/ single item -->
+				<!-- single item -->
+				<div onclick="location.href='cadastroTreinador.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="coach.png" />
+					<h2>TREINADOR</h2>
+				</div>
+				<!--/ single item -->
+			</div>
+			<!--/ items -->
+		</div>
+		<!--/ wrapper -->
+		
+	   <!-- Segunda Linha -->
+	   <!-- wrapper -->
+		<div class="wrapper">
+
+			<div class="clear"></div>
+			<!-- items -->
+			<div class="items ui-fluid">
+				<!-- single item -->
+				<div onclick="location.href='cadastroArbitro.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="arbitro.png" />
+					<h2>ÁRBITRO</h2>
+				</div>
+				<!--/ single item -->
+				<!-- single item -->
+				<div onclick="location.href='cadastroUtilizador.xhtml'" class="item">
+					<h:graphicImage library="images" width="150px" height="240px" name="utilizador.png" />
+					<h2>UTILIZADOR</h2>
+				</div>
+				<!--/ single item -->
+			</div>
+			<!--/ items -->
+		</div>
+		<!--/ wrapper -->
+	</ui:define>
+</ui:composition>

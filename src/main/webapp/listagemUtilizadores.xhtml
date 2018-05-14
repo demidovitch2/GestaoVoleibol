@@ -15,14 +15,14 @@
 
 		<p:toolbar style="margin-bottom:10px">
 			<p:toolbarGroup>
-				<p:button value="Novo" outcome="cadastroUtilizador"/>
-
+				<p:button value="Novo" icon="ui-icon-plus" outcome="cadastroUtilizador" />
+				<p:button value="Voltar"  icon="ui-icon-arrowthick-1-w" outcome="listagem" />
 				<p:button icon="ui-icon-search" />
 			</p:toolbarGroup>
 		</p:toolbar>
 
-		<p:dataTable value="#{cadastroUtilizadorBean.utilizadores}" var="utilizador"
-			id="tabelaUtilizador">
+		<p:dataTable value="#{cadastroUtilizadorBean.utilizadores}"
+			var="utilizador" id="tabelaUtilizador">
 			<p:column headerText="ID" style="text-align:center;width:40px">
 				<h:outputText value="#{utilizador.id}" />
 			</p:column>
@@ -54,7 +54,8 @@
 				</p:commandButton>
 
 				<p:commandButton icon="ui-icon-trash" title="Remover"
-					update="tabelaUtilizador" action="#{cadastroUtilizadorBean.remover()}">
+					update="tabelaUtilizador"
+					action="#{cadastroUtilizadorBean.remover()}">
 					<f:setPropertyActionListener value="#{utilizador}"
 						target="#{cadastroUtilizadorBean.utilizadorEscolhido}" />
 				</p:commandButton>

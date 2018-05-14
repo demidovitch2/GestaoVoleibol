@@ -34,6 +34,7 @@ public class CadastroUtilizadorBean implements Serializable {
 
 	private Utilizador utilizador = new Utilizador();
 	private Utilizador utilizadorEscolhido = new Utilizador();
+	private Grupo grupo = new Grupo();
 	@SuppressWarnings("unused")
 	private List<Utilizador> utilizadores = new ArrayList<>();
 	private Set<Grupo> gruposSeleccionados = new HashSet<>();
@@ -54,6 +55,14 @@ public class CadastroUtilizadorBean implements Serializable {
 		this.utilizadorEscolhido = utilizadorSeleccionado;
 	}
 
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
 	public List<Utilizador> getUtilizadores() {
 		return repository.utilizadores();
 	}
@@ -71,12 +80,10 @@ public class CadastroUtilizadorBean implements Serializable {
 	}
 
 	public void salvar() {
-		utilizador.setGrupos(gruposSeleccionados);
+		for(Grupo g: gruposSeleccionados)
+		utilizador.getGrupos().add(g);
 		repository.salvar(utilizador);
-		for (Grupo grupo : gruposSeleccionados) {
-			grupo.getUtilizadores().add(utilizador);
-			grupoRepository.salvar(grupo);
-		}
+		
 
 		this.utilizador = new Utilizador();
 		FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_INFO, "Utilizador Adicionado com Sucesso");
