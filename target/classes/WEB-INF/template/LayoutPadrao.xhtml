@@ -10,6 +10,32 @@
 	<title><ui:insert name="titulo">Sistema de Gestão desportiva VoleiBol</ui:insert></title>
 	<h:outputStylesheet library="css" name="sistema.css" />
 	<h:outputStylesheet library="javascript" name="app.js" />
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+    $("#home").click(function(){
+    	$("li").removeClass("is-selected");
+        $("#home").addClass("is-selected");
+    });
+
+    $("#cadastro").click(function(){
+    	$("li").removeClass("is-selected");
+        $("#cadastro").addClass("is-selected");
+    });
+
+    $("#transferencia").click(function(){
+    	$("li").removeClass("is-selected");
+        $("#transferencia").addClass("is-selected");
+    });
+    $("#listagem").click(function(){
+    	$("li").removeClass("is-selected");
+        $("#listagem").addClass("is-selected");
+    });
+
+});
+</script>
 </h:head>
 
 <h:body>
@@ -39,7 +65,7 @@
 		<div style="float: right; margin-right: 110px">
 			<span
 				style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
-				Olá Utilizador </span>
+				Olá #{seguranca.nomeUtilizador} </span>
 			<h:form styleClass="ui-fluid" style="display:inline-block">
 				<p:menubar styleClass="menu-sistema">
 					<p:submenu label="Cadastros">
@@ -91,7 +117,9 @@
 	</section>
 
 </h:body>
-<p:separator style="margin-top:20px" />
-<footer> A bem do desporto e do volei em particular, KEEP THE
-	BALL FLY </footer>
+
+<div class="footer">
+	<p:separator />
+	<p>A bem do desporto e do volei em particular, KEEP THE BALL FLY</p>
+</div>
 </html>

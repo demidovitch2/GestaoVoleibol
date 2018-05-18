@@ -27,13 +27,13 @@
 
 			<p:panelGrid columns="2" styleClass="ui-noborder login-grid">
 				<p:outputLabel value="Email" />
-				<p:inputText id="j_username"/>
+				<p:inputText id="j_username" value="#{loginBean.email}"/>
 
 				<p:outputLabel value="Senha" />
 				<p:password id="j_password" />
 
 				<p:outputLabel />
-				<p:commandButton value="Entrar" 
+				<p:commandButton value="Entrar" action="#{loginBean.login}" 
 					ajax="false" />
 			</p:panelGrid>
 		</section>

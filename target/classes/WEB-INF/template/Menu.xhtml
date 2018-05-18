@@ -5,22 +5,20 @@
 	<nav class="aw-menu">
 
 		<ul>
-			<li class="is-selected"><h:link outcome="Home.xhtml">
-					<i class="fa fa-fw fa-home" ></i>DashBoard</h:link></li>
+			<li id="home" class="is-selected"><h:link outcome="Home.xhtml">
+					<i class="fa fa-fw fa-home"></i>DashBoard</h:link></li>
 
-			<li><h:link outcome="cadastro.xhtml" >
+			<li id="cadastro"><h:link outcome="cadastro.xhtml">
 					<i class="fa fa-fw fa-user"></i>Cadastros</h:link></li>
 
-			<li><h:link>
+			<li id="transferencia"><h:link outcome="transferencia.xhtml">
 					<i class="fa fa-fw fa-text"></i>Transferências</h:link></li>
-			
-			<li><h:link outcome="listagem.xhtml">
-				<i class="fa fa-fw fa-text"></i>Listagens</h:link>
-			</li>
-			
-			<li><h:link >
-				<i class="fa fa-fw fa-text"></i>Sair</h:link>
-			</li>
+
+			<li id="listagem"><h:link outcome="listagem.xhtml">
+					<i class="fa fa-fw fa-text"></i>Listagens</h:link></li>
+
+			<li><h:link onclick="location.href='j_spring_security_logout'">
+					<i class="fa fa-fw fa-text"></i>Sair</h:link></li>
 
 		</ul>
 
