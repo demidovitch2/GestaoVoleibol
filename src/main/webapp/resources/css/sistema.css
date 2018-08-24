@@ -178,8 +178,8 @@ no-repeat;
 /*------------------------------------------------------------------------------------------------*/
 .wrapper {
 	width: 705px;
-	margin: 20px auto;
-	padding: 20px;
+	margin: 10px auto;
+	padding: 10px;
 }
 
 .clear {
@@ -188,14 +188,13 @@ no-repeat;
 
 .items {
 	display: inline-block;
-	margin: 20px 0;
+	margin: 10px 0;
 }
 
 .item {
 	float: left;
 	margin: 0px 10px 10px 0px;
 	width: 205px;
-	padding: 15px;
 	height: 290px;
 	box-shadow: 5px;
 	border-radius: 10px;
@@ -210,7 +209,6 @@ no-repeat;
 .itemhome {
 	float:left;
 	width: 205px;
-	padding: 15px;
 	height: 290px;
 	box-shadow: 5px;
 	border-radius: 10px;
